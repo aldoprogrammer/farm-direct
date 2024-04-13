@@ -3,7 +3,8 @@ import LogoLogin from '../assets/logo-login.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
-
+import grapichLeftTop from '../assets/grap-login-above-left.png';
+import grapichRightTop from '../assets/grap-login-above-right.png';
 
 
 const Login = () => {
@@ -15,7 +16,9 @@ const Login = () => {
 
   return (
     <div className='bg-[#FFFBEB] h-[100vh] w-full flex justify-center align-center flex-col'>
-      <img src={LogoLogin} alt="" className='w-[189px] h-[50px] mx-auto' />
+      <img src={grapichLeftTop} alt="" className='absolute top-0 left-0 w-[53%] h-[66px] object-fit' />
+      <img src={grapichRightTop} alt="" className='absolute top-0 right-0 w-[25%] h-[54px] object-fit' />
+      <img src={LogoLogin} alt="" className='w-[189px] h-[50px] mx-auto mt-10' />
       <div className='w-10/12 mx-auto'>
         <div className='my-2 flex flex-col gap-1 align-center'>
           <label htmlFor="email">E-Mail</label>
@@ -84,7 +87,7 @@ const Login = () => {
           </div>
 
           {/* Social account login */}
-          <div className='flex flex-row gap-2 align-center w-4/5 mx-auto'>
+          <div className='flex flex-row gap-2 w-4/5 mx-auto justify-center items-center'>
   <div className='bg-[#FFFFFF] py-2 px-3 rounded-full flex gap-2 items-center w-[240px] shadow-md'>
     <FontAwesomeIcon icon={faFacebook} style={{ color: '#1877F2', width: '40px', height: '40px' }} />
     <p className='text-[#000000] font-normal'>Facebook</p>
