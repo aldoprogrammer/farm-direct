@@ -8,7 +8,7 @@ import grapichRightTop from '../assets/grap-login-above-right.png';
 import { Link } from 'react-router-dom';
 
 
-const Login = () => {
+const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -50,21 +50,41 @@ const Login = () => {
             </button>
           </div>
         </div>
+        <div className='my-2 flex flex-col gap-1 align-center'>
+          <label htmlFor="repeat-password">Repeat Password</label>
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="repeat-password"
+              id="repeat-password"
+              placeholder='value'
+              className='py-2 px-3  rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none
+              w-full'
+            />
+            <button
+              type="button"
+              className="absolute bottom-[12px] right-[7px] flex items-center justify-center mr-2 focus:outline-none"
+              onClick={togglePasswordVisibility}
+            >
+              <FontAwesomeIcon icon={faEye} />
+            </button>
+          </div>
+        </div>
         <div className='flex flex-col gap-5 mt-5'>
           <button className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-white my-2 mx-auto'>
             Login
           </button>
           <p className='font-[300] text-[#5B5B5E] text-center'>
-            Don't have an account?{" "}
-            <Link to="/register">
-            <span className='text-[#34A853]'>Sign Up</span>
+            Already have an account?{" "}
+            <Link to="/login">
+            <span className='text-[#34A853]'>Login</span>
             </Link>
           </p>
 
           <div className='flex gap-2 justify-center'>
             <hr className='my-auto border-gray-400 w-[27%]' /> {/* Horizontal line */}
             <p className='font-[300] text-[#5B5B5E] text-center'>
-              Log In With
+              SignUp in With
             </p>
             <hr className='my-auto border-gray-400 w-[27%]' /> {/* Horizontal line */}
           </div>
@@ -87,4 +107,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
