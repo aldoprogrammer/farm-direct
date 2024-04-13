@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LogoLogin from '../assets/logo-login.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import grapichLeftTop from '../assets/grap-login-above-left.png';
 import grapichRightTop from '../assets/grap-login-above-right.png';
@@ -46,7 +46,7 @@ const Login = () => {
               className="absolute bottom-[12px] right-[7px] flex items-center justify-center mr-2 focus:outline-none"
               onClick={togglePasswordVisibility}
             >
-              <FontAwesomeIcon icon={faEye} />
+              <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
             </button>
           </div>
         </div>

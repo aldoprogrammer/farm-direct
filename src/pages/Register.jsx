@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LogoLogin from '../assets/logo-login.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import grapichLeftTop from '../assets/grap-login-above-left.png';
 import grapichRightTop from '../assets/grap-login-above-right.png';
@@ -46,7 +46,7 @@ const Register = () => {
               className="absolute bottom-[12px] right-[7px] flex items-center justify-center mr-2 focus:outline-none"
               onClick={togglePasswordVisibility}
             >
-              <FontAwesomeIcon icon={faEye} />
+              <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
             </button>
           </div>
         </div>
@@ -66,13 +66,13 @@ const Register = () => {
               className="absolute bottom-[12px] right-[7px] flex items-center justify-center mr-2 focus:outline-none"
               onClick={togglePasswordVisibility}
             >
-              <FontAwesomeIcon icon={faEye} />
+              <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
             </button>
           </div>
         </div>
         <div className='flex flex-col gap-5 mt-5'>
           <button className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-white my-2 mx-auto'>
-            Login
+            Register
           </button>
           <p className='font-[300] text-[#5B5B5E] text-center'>
             Already have an account?{" "}
