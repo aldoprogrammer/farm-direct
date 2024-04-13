@@ -2,16 +2,21 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Accordion, AccordionBody, AccordionHeader, Button } from '@material-tailwind/react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './pages/Login';
+
 
 function App() {
 
  
   return (
-    <>
-      <Button color="green">Material</Button>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
   )
 }
 
 export default App
+
