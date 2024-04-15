@@ -1,17 +1,28 @@
 import React, { useState } from 'react'
-import PencilIcon from '../../assets/pencilIcon.png';
 import FarmEditButton from '../../components/FarmEditButton';
 import ButtonFarmDirect from '../../components/ButtonFarmDirect';
 import FarmDetailsFormModal from '../../modal/FarmDetailsFormModal';
+import FarmAddressDetailsFormModal from '../../modal/FarmAddressDetailsFormModal';
 
 const FarmDetailsForm = () => {
   const [showModalFarmBussiness, setShowModalFarmBussiness] = useState(false); // State to manage modal visibility
+  const [showModalAddress, setShowModalAddress] = useState(false); // State to manage modal visibility
+
+
   const handleEditFarmBussiness = () => {
     setShowModalFarmBussiness(true); // Show the modal when the button is clicked
   };
 
   const handleCloseEditFarmBussiness = () => {
     setShowModalFarmBussiness(!showModalFarmBussiness);
+  };
+
+  const handleEditAddress = () => {
+    setShowModalAddress(true); // Show the modal when the button is clicked
+  };
+
+  const handleCloseEditAddress = () => {
+    setShowModalAddress(!showModalAddress);
   };
 
   return (
@@ -38,7 +49,7 @@ const FarmDetailsForm = () => {
       flex flex-col shadow-md gap-5'>
         <div className='flex items-left gap-2 justify-between w-full'>
           <p className='font-bold'>Address:</p>
-          <FarmEditButton />
+          <FarmEditButton handleClick={handleEditAddress} />
         </div>
       </div>
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
@@ -62,6 +73,7 @@ const FarmDetailsForm = () => {
         </div>
       </div>
       {showModalFarmBussiness && <FarmDetailsFormModal closeModal={handleCloseEditFarmBussiness} />}
+      {showModalAddress && <FarmAddressDetailsFormModal closeModal={handleCloseEditAddress} />}
     </div>
   )
 }

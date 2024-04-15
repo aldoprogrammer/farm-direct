@@ -1,10 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import ButtonFarmDirect from '../components/ButtonFarmDirect';
+import ButtonCancel from '../components/ButtonCancel';
 
 const FarmDetailsFormModal = ({ closeModal }) => {
     return (
-        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50">
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50 backdrop-filter backdrop-blur-sm">
             <div className="absolute w-full h-full bg-gray-900 opacity-50" onClick={closeModal}></div>
 
             {/* modal background white */}
@@ -57,12 +58,8 @@ const FarmDetailsFormModal = ({ closeModal }) => {
                 <div className='absolute w-[96%] bottom-5 p-2'>
                     <div className=' flex 
                 items-center justify-between flex-row'>
-                    <button className='w-fit border-[#D8D8DA] 
-                    border-2 p-4 text-[#000] rounded-lg'>
-                        Cancel
-                    </button>
-
-                    <ButtonFarmDirect title="Save" />
+                        <ButtonCancel onClick={closeModal} />
+                        <ButtonFarmDirect title="Save" />
                     </div>
                 </div>
             </div>
