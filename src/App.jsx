@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Register from './pages/Register';
 import Login from './pages/Login';
+import RegisterFarmFlow from './pages/tabs/RegisterFarmFlow';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/farm-welcome" element={<RegisterFarmFlow />} />
       </Routes>
     </Router>
   )

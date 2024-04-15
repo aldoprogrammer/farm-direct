@@ -5,14 +5,21 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import grapichLeftTop from '../assets/grap-login-above-left.png';
 import grapichRightTop from '../assets/grap-login-above-right.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleLogin = () => {
+    // Perform any login logic here
+    // Redirect to "/farm-welcome" route
+    navigate('/farm-welcome');
   };
 
   return (
@@ -51,7 +58,9 @@ const Login = () => {
           </div>
         </div>
         <div className='flex flex-col gap-5 mt-5'>
-          <button className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-white my-2 mx-auto'>
+          <button 
+            onClick={handleLogin}
+            className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-white my-2 mx-auto'>
             Login
           </button>
           <p className='font-[300] text-[#5B5B5E] text-center'>
