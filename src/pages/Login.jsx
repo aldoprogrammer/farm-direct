@@ -19,7 +19,7 @@ const Login = () => {
   const handleLogin = () => {
     // Perform any login logic here
     // Redirect to "/farm-welcome" route
-    navigate('/farm-welcome');
+    navigate('/farm');
   };
 
   return (

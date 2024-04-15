@@ -5,7 +5,7 @@ import FarmWelcomeIcon2 from '../../assets/farmWelcomeIcon2.png';
 import FarmWelcomeIcon3 from '../../assets/farmWelcomeIcon3.png';
 import ButtonFarmDirect from '../../components/ButtonFarmDirect';
 import PencilIcon from '../../assets/pencilIcon.png';
-const WelcomeFarmPage = () => {
+const WelcomeFarmPage = ({ setActiveFarmTab }) => {
   // Define JSON data for the text content
   const welcomeData = [
     {
@@ -21,6 +21,10 @@ const WelcomeFarmPage = () => {
       text: 'Gain insights on market trends and get recommendations'
     }
   ];
+
+  const handleSetupFarmClick = () => {
+    setActiveFarmTab('FarmDetails'); // Update the active tab to 'FarmDetails'
+  };
 
   return (
     <div className='flex flex-col w-full h-[600px] px-2 py-0 items-center justify-center 
@@ -39,13 +43,15 @@ const WelcomeFarmPage = () => {
           <p className='text-[#44403C] text-left text-sm'>{item.text}</p>
         </div>
       ))}
-      <button className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-[#FFFFFF] my-2 mx-auto
-      flex flex-row items-center gap-3'>
+      <button
+        onClick={handleSetupFarmClick} // Call the handleSetupFarmClick function on button click
+        className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-[#FFFFFF] my-2 mx-auto
+        flex flex-row items-center gap-3'>
         <img src={PencilIcon} alt="" className='w-4 h-4' />
         <p>Setup Your Farm</p>
       </button>
     </div>
-    
+
   );
 };
 
