@@ -13,7 +13,7 @@ const BottomTab = ({ setActiveTab }) => {
   };
 
   return (
-    <footer className='bg-[#44403C] w-full h-12 justify-between items-center grid grid-cols-4 absolute bottom-0'>
+    <footer className='bg-[#44403C] w-full h-12 justify-between items-center grid grid-cols-4 fixed bottom-0'>
       <div
         className={`flex cursor-pointer h-full justify-center items-center ${activeTab === 'Market' ? 'bg-[#65A30D]' : ''}`}
         onClick={() => handleTabClick('Market')}

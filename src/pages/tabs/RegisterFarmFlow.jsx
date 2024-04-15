@@ -5,7 +5,7 @@ import WelcomeFarmPage from '../farm-register/WelcomeFarmPage'
 
 const RegisterFarmFlow = () => {
   return (
-    <div>
+    <div className='relative h-[100vh] overflow-yauto'>
         <TopTab />
         <WelcomeFarmPage />
         <BottomTab setActiveTab='Farm' />
