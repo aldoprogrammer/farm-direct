@@ -4,6 +4,7 @@ import BottomTab from '../../../components/BottomTab';
 import WelcomeFarmPage from '../../farm-register/WelcomeFarmPage';
 import FarmDetailsForm from '../../farm-register/FarmDetailsForm';
 import { Helmet } from 'react-helmet';
+import FarmRegisterDone from '../../farm-register/FarmRegisterDone';
 
 const RegisterFarmFlow = () => {
   const [activeFarmTab, setActiveFarmTab] = useState('WelcomeFarmPage');
@@ -13,7 +14,9 @@ const RegisterFarmFlow = () => {
       case 'WelcomeFarmPage':
         return <WelcomeFarmPage setActiveFarmTab={setActiveFarmTab} />;
       case 'FarmDetails':
-        return <FarmDetailsForm />;
+        return <FarmDetailsForm setActiveFarmTab={setActiveFarmTab} />;
+      case 'Done':
+        return <FarmRegisterDone />;
       default:
         return <WelcomeFarmPage />;
     }

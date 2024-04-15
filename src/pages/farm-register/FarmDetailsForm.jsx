@@ -4,7 +4,7 @@ import ButtonFarmDirect from '../../components/ButtonFarmDirect';
 import FarmDetailsFormModal from '../../modal/FarmDetailsFormModal';
 import FarmAddressDetailsFormModal from '../../modal/FarmAddressDetailsFormModal';
 
-const FarmDetailsForm = () => {
+const FarmDetailsForm = ({setActiveFarmTab}) => {
   const [showModalFarmBussiness, setShowModalFarmBussiness] = useState(false); // State to manage modal visibility
   const [showModalAddress, setShowModalAddress] = useState(false); // State to manage modal visibility
 
@@ -25,9 +25,15 @@ const FarmDetailsForm = () => {
     setShowModalAddress(!showModalAddress);
   };
 
+
+  const handleSetupFarmClick = () => {
+    setActiveFarmTab('Done'); // Update the active tab 
+  };
+
   return (
     <div className='flex flex-col w-full h-[600px] px-2 py-0 items-center 
     mt-4 gap-4 overflow-auto mb-20'>
+      <ButtonFarmDirect title='Save Farm Details' onClick={handleSetupFarmClick} />
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5'>
         <div className='flex items-center gap-2 justify-between'>
