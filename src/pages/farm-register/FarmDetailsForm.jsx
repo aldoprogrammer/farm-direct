@@ -56,7 +56,7 @@ const FarmDetailsForm = () => {
       flex flex-col shadow-md gap-5'>
         <div className='flex flex-col items-left gap-2 justify-between w-full'>
         <p className='font-bold'>IoT Devices:</p>
-          <div className='flex flex-col justify-center'>
+          <div className='flex flex-col justify-center items-center'>
             <ButtonFarmDirect title='Discover IoT Devices' />
           </div>
         </div>
