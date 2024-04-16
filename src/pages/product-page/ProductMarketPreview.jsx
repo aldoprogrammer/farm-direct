@@ -5,7 +5,7 @@ import FarmDetailsFormModal from '../../modal/FarmDetailsFormModal';
 import FarmAddressDetailsFormModal from '../../modal/FarmAddressDetailsFormModal';
 import UserFarmerShoperModal from '../../modal/UserFarmerShoperModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faDollarSign, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faDollarSign, faPlus, faTemperatureLow, faTint, faWater } from '@fortawesome/free-solid-svg-icons';
 import IconUpThumbnailLeftSide from '../../assets/icon-1-thumbanil.png'
 import ThumbnailProduct from '../../assets/thumbnail-product.png'
 import ProductBell from '../../assets/product-bell.png'
@@ -13,6 +13,7 @@ import WhiteEditButton from '../../components/WhiteEditButton';
 import TangkaiBunga from '../../assets/tangkai-bunga.png'
 import DaunBunga from '../../assets/daun-bunga.png'
 import EditProductFormModal from '../../modal/EditProductFormModal';
+import ReactSpeedometer from 'react-d3-speedometer';
 const ProductMarketPreview = ({ setActiveProductTab }) => {
   const [showModalEditProduct, setShowModalEditProduct] = useState(false); // State to manage modal visibility
   const [showModalAddress, setShowModalAddress] = useState(false); // State to manage modal visibility
@@ -115,24 +116,48 @@ const ProductMarketPreview = ({ setActiveProductTab }) => {
         </div>
       </div>
 {/* speedo meter */}
-<div className='grid grid-cols-2 gap-2'>
-      <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
-      flex flex-col shadow-md gap-5'>
-        <div className='flex gap-2 justify-between'>
-          <p className='font-bold'>
-            Product Description
-          </p>
-          <FarmEditButton />
-        </div>
+<div className='grid grid-cols-2 gap-2 w-full'>
+  {/* speedo left */}
+  <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
+      flex flex-col shadow-md gap-5 relative'>
+          <FontAwesomeIcon icon={faTint} className='absolute top-3 left-3 text-[#65A30D] text-xl' />
+
+<ReactSpeedometer
+  value={55} // Adjust the initial value as needed
+  minValue={0}
+  maxValue={100}
+  needleColor="steelblue"
+  needleTransitionDuration={4000}
+  needleTransition="easeElastic"
+  textColor={"#000000"}
+  width={150} // Set a smaller width here
+  height={150} // Set a smaller height here
+  currentValueText={"66%"}
+/>
+
+
+
       </div>
+      {/* speedo right */}
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
-      flex flex-col shadow-md gap-5'>
-        <div className='flex gap-2 justify-between'>
-          <p className='font-bold'>
-            Product Description
-          </p>
-          <FarmEditButton />
-        </div>
+      flex flex-col shadow-md gap-5 relative'>
+          <FontAwesomeIcon icon={faTemperatureLow} className='absolute top-3 left-3 text-[#65A30D] text-xl' />
+
+<ReactSpeedometer
+  value={55} // Adjust the initial value as needed
+  minValue={0}
+  maxValue={100}
+  needleColor="steelblue"
+  needleTransitionDuration={4000}
+  needleTransition="easeElastic"
+  textColor={"#000000"}
+  width={150} // Set a smaller width here
+  height={150} // Set a smaller height here
+  currentValueText={"55°C"}
+/>
+
+
+
       </div>
       </div>
 
