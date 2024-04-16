@@ -114,7 +114,8 @@ const ProductMarketPreview = ({ setActiveProductTab }) => {
           </div>
         </div>
       </div>
-
+{/* speedo meter */}
+<div className='grid grid-cols-2 gap-2'>
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5'>
         <div className='flex gap-2 justify-between'>
@@ -124,11 +125,22 @@ const ProductMarketPreview = ({ setActiveProductTab }) => {
           <FarmEditButton />
         </div>
       </div>
+      <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
+      flex flex-col shadow-md gap-5'>
+        <div className='flex gap-2 justify-between'>
+          <p className='font-bold'>
+            Product Description
+          </p>
+          <FarmEditButton />
+        </div>
+      </div>
+      </div>
+
       <div className='w-full min-h-[120px] h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
   flex flex-col shadow-md gap-5 mb-3'>
   <div className='flex flex-col gap-2 justify-between'>
     <div className='flex items-center gap-1'>
-    <FontAwesomeIcon icon={faDollarSign} className='text-[#65A30D]' />
+    <FontAwesomeIcon icon={faDollarSign} className='text-[#65A30D] text-lg' />
     <p className='font-bold'>Market Prediction</p>
     </div>
     {/* market prediction */}
