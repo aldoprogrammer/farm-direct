@@ -12,17 +12,18 @@ import ProductBell from '../../assets/product-bell.png'
 import WhiteEditButton from '../../components/WhiteEditButton';
 import TangkaiBunga from '../../assets/tangkai-bunga.png'
 import DaunBunga from '../../assets/daun-bunga.png'
+import EditProductFormModal from '../../modal/EditProductFormModal';
 const EditPage = ({ setActiveProductTab }) => {
-  const [showModalShoperFarmer, setShowModalShoperFarmer] = useState(false); // State to manage modal visibility
+  const [showModalEditProduct, setShowModalEditProduct] = useState(false); // State to manage modal visibility
   const [showModalAddress, setShowModalAddress] = useState(false); // State to manage modal visibility
 
 
-  const handleEditFarmerShoper = () => {
-    setShowModalShoperFarmer(true); // Show the modal when the button is clicked
+  const handleEditProduct = () => {
+    setShowModalEditProduct(true); // Show the modal when the button is clicked
   };
 
-  const handleCloseEditShoperFarmer = () => {
-    setShowModalShoperFarmer(!showModalShoperFarmer);
+  const handleCloseEditProduct = () => {
+    setShowModalEditProduct(!showModalEditProduct);
   };
 
   const handleEditAddress = () => {
@@ -128,7 +129,7 @@ const EditPage = ({ setActiveProductTab }) => {
             <p className='font-bold'>Price:</p>
             20$
           </div>
-          <FarmEditButton />
+          <FarmEditButton handleClick={handleEditProduct} />
 
         </div>
       </div>
@@ -138,7 +139,7 @@ const EditPage = ({ setActiveProductTab }) => {
           <p className='font-bold'>
             Product Description
           </p>
-          <FarmEditButton handleClick={handleEditFarmerShoper} />
+          <FarmEditButton />
         </div>
       </div>
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
@@ -156,11 +157,11 @@ const EditPage = ({ setActiveProductTab }) => {
           <p className='font-bold'>
             Product History
           </p>
-          <FarmEditButton handleClick={handleEditFarmerShoper} />
+          <FarmEditButton />
         </div>
       </div>
 
-      {showModalShoperFarmer && <UserFarmerShoperModal closeModal={handleCloseEditShoperFarmer} />}
+      {showModalEditProduct && <EditProductFormModal closeModal={handleCloseEditProduct} />}
     </div>
   )
 }
