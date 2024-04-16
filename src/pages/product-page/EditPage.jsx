@@ -10,6 +10,8 @@ import IconUpThumbnailLeftSide from '../../assets/icon-1-thumbanil.png'
 import ThumbnailProduct from '../../assets/thumbnail-product.png'
 import ProductBell from '../../assets/product-bell.png'
 import WhiteEditButton from '../../components/WhiteEditButton';
+import TangkaiBunga from '../../assets/tangkai-bunga.png'
+import DaunBunga from '../../assets/daun-bunga.png'
 const EditPage = ({ setActiveProductTab }) => {
   const [showModalShoperFarmer, setShowModalShoperFarmer] = useState(false); // State to manage modal visibility
   const [showModalAddress, setShowModalAddress] = useState(false); // State to manage modal visibility
@@ -63,9 +65,18 @@ const EditPage = ({ setActiveProductTab }) => {
           <div className='h-1/5 w-full bg-[#65A30D] flex items-end justify-center rounded-tl-md'>
             <img src={IconUpThumbnailLeftSide} alt="" srcset="" className='w-5 h-3' />
           </div>
-          <div className='h-3/5 w-full bg-[#ECFCCB]'>
+          <div className='h-3/5 w-full bg-[#ECFCCB] relative'>
             <p className='text-[#65A30D] text-[10px] text-center'>
               May 24
+            </p>
+            <img src={DaunBunga} alt="" srcset="" 
+            className='absolute md:hidden flex
+            bottom-[45%] left-[42%]' />
+            <img src={TangkaiBunga} alt="" srcset="" className='absolute
+            bottom-0 left-[50%] md:hidden flex' />
+            <p className='text-black font-bold absolute left-[20%] top-1/2 w-full
+            md:left-[33%]'>
+              Apr 24
             </p>
           </div>
           <div className='h-1/5 w-full bg-[#78716C] flex 
