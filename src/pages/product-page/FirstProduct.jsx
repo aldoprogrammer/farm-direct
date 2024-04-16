@@ -12,8 +12,8 @@ const FirstProduct = ({ setActiveProductTab }) => {
   const [showModalAddress, setShowModalAddress] = useState(false); // State to manage modal visibility
 
 
-  const handleEditFarmerShoper = () => {
-    setShowModalShoperFarmer(true); // Show the modal when the button is clicked
+  const handleEditProduct = () => {
+    setActiveProductTab('EditProductPage'); // Update the active tab 
   };
 
   const handleCloseEditShoperFarmer = () => {
@@ -30,7 +30,7 @@ const FirstProduct = ({ setActiveProductTab }) => {
 
 
   const handleSetupFarmClick = () => {
-    setActiveProductTab('Done'); // Update the active tab 
+    setActiveProductTab('EditProductPage'); // Update the active tab 
   };
 
   return (
@@ -43,7 +43,7 @@ const FirstProduct = ({ setActiveProductTab }) => {
           <p className='font-bold'>
           Your First Product
             </p>
-          <FarmEditButton handleClick={handleEditFarmerShoper} />
+          <FarmEditButton handleClick={handleEditProduct} />
         </div>
       </div>
       <div className='fixed bottom-16 right-3 bg-[#65A30D] w-[40px] h-[40px] p-2 rounded-full

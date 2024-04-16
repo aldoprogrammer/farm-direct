@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet';
 import FarmRegisterDone from '../../farm-register/FarmRegisterDone';
 import UserFormDetails from '../../users/UserFormDetails';
 import FirstProduct from '../../product-page/FirstProduct';
+import EditPage from '../../product-page/EditPage';
 
 
 const Product = () => {
@@ -15,7 +16,9 @@ const Product = () => {
   const renderContent = () => {
     switch (activeProductTab) {
       case 'UserFormDetils':
-        return <FirstProduct setActiveProductTab={activeProductTab} />;
+<FirstProduct setActiveProductTab={setActiveProductTab} />
+        case 'EditProductPage':
+        return <EditPage setActiveProductTab={activeProductTab} />;
       default:
         return <WelcomeFarmPage />;
     }
