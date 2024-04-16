@@ -5,7 +5,7 @@ import FarmDetailsFormModal from '../../modal/FarmDetailsFormModal';
 import FarmAddressDetailsFormModal from '../../modal/FarmAddressDetailsFormModal';
 import UserFarmerShoperModal from '../../modal/UserFarmerShoperModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faDollarSign, faPlus } from '@fortawesome/free-solid-svg-icons';
 import IconUpThumbnailLeftSide from '../../assets/icon-1-thumbanil.png'
 import ThumbnailProduct from '../../assets/thumbnail-product.png'
 import ProductBell from '../../assets/product-bell.png'
@@ -13,7 +13,7 @@ import WhiteEditButton from '../../components/WhiteEditButton';
 import TangkaiBunga from '../../assets/tangkai-bunga.png'
 import DaunBunga from '../../assets/daun-bunga.png'
 import EditProductFormModal from '../../modal/EditProductFormModal';
-const EditPage = ({ setActiveProductTab }) => {
+const ProductMarketPreview = ({ setActiveProductTab }) => {
   const [showModalEditProduct, setShowModalEditProduct] = useState(false); // State to manage modal visibility
   const [showModalAddress, setShowModalAddress] = useState(false); // State to manage modal visibility
 
@@ -39,29 +39,29 @@ const EditPage = ({ setActiveProductTab }) => {
     setActiveProductTab('EditPage'); // Update the active tab 
   };
 
-  const handlePreviewMarketTab = () => {
-    setActiveProductTab('ProductMarketPreview');
-    console.log('click tab new')
-  };
-
   return (
     <div className='flex flex-col w-full h-[600px] px-2 py-0 items-center 
     mt-4 gap-4 overflow-auto mb-20'>
       <ButtonFarmDirect title='Save Farm Details' onClick={handleSetupFarmClick} />
-      <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
-      grid grid-cols-3 shadow-md gap-5'>
-        <div className='p-2 border-[#F73B3B] border-2
-        flex items-center justify-center rounded-md cursor-pointer'>
-          <p className='text-base text-[#F73B3B]'>Deactive</p>
+    {/* sub tab header */}
+    <div className='w-full h-12 grid grid-cols-3'>
+        <div className='w-full border-b-[#65A30D] border-2
+        flex items-center justify-center p-2 border-[#FFFBEB]' >
+          <p className='font-normal text-base'>
+          Cabbage
+            </p>
         </div>
-        <div className='p-2 border-[#D8D8DA] border-2
-        flex items-center justify-center rounded-md'>
-          <p className='text-base text-[#D8D8DA] cursor-pointer'>Copy</p>
+        <div className='w-full
+        flex items-center justify-center p-2 border-[#FFFBEB]' >
+          <p className='font-normal text-base'>
+          Cane Sugar
+            </p>
         </div>
-        <div className='p-2 border-[#D8D8DA] border-2
-        flex items-center justify-center rounded-md cursor-pointer'
-        onClick={handlePreviewMarketTab}>
-          <p className='text-base text-[#D8D8DA] text-center'>Preview In Market</p>
+        <div className='w-full
+        flex items-center justify-center p-2 border-[#FFFBEB]' >
+          <p className='font-normal text-base'>
+          Carrots
+            </p>
         </div>
       </div>
       {/* thubmnail product section */}
@@ -114,31 +114,7 @@ const EditPage = ({ setActiveProductTab }) => {
           </div>
         </div>
       </div>
-      <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
-      flex flex-col shadow-md gap-5'>
-        <div className='flex items-center gap-2 justify-between'>
-          <div className='flex flex-col gap-1'>
-            <p className='font-bold'>Name:</p>
-            <p>Apple</p>
-          </div>
-          <div className='flex items-center gap-1'>
-            <div className='rounded-full w-4 h-4 bg-[#FFBE18]'></div>
-            <p>Not listed</p>
-          </div>
-        </div>
-        <div className='flex flex-col gap-1'>
-          <p className='font-bold mt-4'>Quantity:</p>
-          23
-        </div>
-        <div className='flex items-center gap-2 justify-between w-full'>
-          <div className='flex flex-col gap-1'>
-            <p className='font-bold'>Price:</p>
-            20$
-          </div>
-          <FarmEditButton handleClick={handleEditProduct} />
 
-        </div>
-      </div>
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5'>
         <div className='flex gap-2 justify-between'>
@@ -148,28 +124,23 @@ const EditPage = ({ setActiveProductTab }) => {
           <FarmEditButton />
         </div>
       </div>
-      <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
-      flex flex-col shadow-md gap-5'>
-        <div className='flex flex-col items-left gap-2 justify-between w-full'>
-          <p className='font-bold'>IoT Devices:</p>
-          <div className='flex flex-col justify-center items-center'>
-            <ButtonFarmDirect title='Discover IoT Devices' />
-          </div>
-        </div>
-      </div>
-      <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
-      flex flex-col shadow-md gap-5'>
-        <div className='flex gap-2 justify-between'>
-          <p className='font-bold'>
-            Product History
-          </p>
-          <FarmEditButton />
-        </div>
-      </div>
+      <div className='w-full min-h-[120px] h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
+  flex flex-col shadow-md gap-5 mb-3'>
+  <div className='flex flex-col gap-2 justify-between'>
+    <div className='flex items-center gap-1'>
+    <FontAwesomeIcon icon={faDollarSign} className='text-[#65A30D]' />
+    <p className='font-bold'>Market Prediction</p>
+    </div>
+    {/* market prediction */}
+    <div className='flex flex-col items-center justify-center h-auto mt-2'>
+      <p className='font-bold'>Dummy data for now</p>
+    </div>
+  </div>
+</div>
 
       {showModalEditProduct && <EditProductFormModal closeModal={handleCloseEditProduct} />}
     </div>
   )
 }
 
-export default EditPage
+export default ProductMarketPreview
