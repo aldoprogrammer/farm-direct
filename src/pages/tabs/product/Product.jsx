@@ -6,35 +6,32 @@ import FarmDetailsForm from '../../farm-register/FarmDetailsForm';
 import { Helmet } from 'react-helmet';
 import FarmRegisterDone from '../../farm-register/FarmRegisterDone';
 import UserFormDetails from '../../users/UserFormDetails';
+import FirstProduct from '../../product-page/FirstProduct';
 
-const RegisterFarmFlow = () => {
-  const [activeFarmTab, setActiveFarmTab] = useState('WelcomeFarmPage');
-  
+
+const Product = () => {
+  const [activeProductTab, setActiveProductTab] = useState('UserFormDetils');
 
   const renderContent = () => {
-    switch (activeFarmTab) {
-      case 'WelcomeFarmPage':
-        return <WelcomeFarmPage setActiveFarmTab={setActiveFarmTab} />;
-      case 'FarmDetails':
-        return <FarmDetailsForm setActiveFarmTab={setActiveFarmTab} />;
-      case 'Done':
-        return <FarmRegisterDone />;
+    switch (activeProductTab) {
+      case 'UserFormDetils':
+        return <FirstProduct setActiveProductTab={activeProductTab} />;
       default:
         return <WelcomeFarmPage />;
     }
   };
-
+  
   return (
     <div className='relative h-[100vh] overflow-y-auto'>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Farm Details - Farm Direct</title>
+        <title>Farm Product - Farm Direct</title>
       </Helmet>
-      <TopTab setActiveFarmTab={setActiveFarmTab}  activeFarmTab={activeFarmTab}  />
+      <TopTab setActiveProductTab={setActiveProductTab}  activeProductTab={activeProductTab}  />
       {renderContent()}
-      <BottomTab activeTab='Farm' />
+      <BottomTab activeTab='Product' />
     </div>
   );
 };
 
-export default RegisterFarmFlow;
+export default Product;
