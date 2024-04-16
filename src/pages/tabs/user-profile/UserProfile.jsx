@@ -23,7 +23,7 @@ const UserProfile = () => {
     <div className='relative h-[100vh] overflow-y-auto'>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Farm Details - Farm Direct</title>
+        <title>User Profile - Farm Direct</title>
       </Helmet>
       <TopTab setActiveUserTab={setActiveUserTab}  activeUserTab={activeUserTab}  />
       {renderContent()}
