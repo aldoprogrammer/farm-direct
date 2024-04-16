@@ -37,9 +37,10 @@ const WelcomeFarmPage = ({ setActiveFarmTab }) => {
       </p>
       {/* Map over the JSON data to render the content */}
       {welcomeData.map((item, index) => (
-        <div key={index} className='flex justify-between items-center gap-y-4 gap-x-3 w-4/5'>
+        <div key={index} className='flex justify-between 
+        items-center gap-y-4 gap-x-3 w-4/5 mx-0 
+        md:mx-auto md:justify-normal md:w-2/5'>
           <img src={item.icon} alt={`Icon ${index + 1}`} className='w-8 h-10' />
-
           <p className='text-[#44403C] text-left text-sm'>{item.text}</p>
         </div>
       ))}

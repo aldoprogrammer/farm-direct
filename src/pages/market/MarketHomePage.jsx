@@ -39,12 +39,12 @@ const MarketHomePage = ({ setActiveMarketTab }) => {
       flex flex-col shadow-md gap-5'>
         <div className='flex gap-2 justify-between'>
           <p className='font-bold'>
-          MarketHomePage
+          Market Place
             </p>
           <FarmEditButton handleClick={handleEditFarmerShoper} />
         </div>
       </div>
-      <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
+      {/* <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5'>
         <div className='flex items-left gap-2 justify-between w-full'>
           <div className='flex flex-col'>
@@ -84,7 +84,7 @@ const MarketHomePage = ({ setActiveMarketTab }) => {
           </div>
           <FarmEditButton />
         </div>
-      </div>
+      </div> */}
       {showModalShoperFarmer && <UserFarmerShoperModal closeModal={handleCloseEditShoperFarmer} />}
       {showModalAddress && <FarmAddressDetailsFormModal closeModal={handleCloseEditAddress} />}
     </div>

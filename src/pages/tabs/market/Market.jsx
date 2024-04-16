@@ -12,26 +12,24 @@ import MarketHomePage from '../../market/MarketHomePage';
 
 
 const Market = () => {
-  const [activeMarketTab, setActiveMarketTab] = useState('UserFormDetils');
+  const [activeMarketTab, setActiveMarketTab] = useState('MarketHomePage');
 
   const renderContent = () => {
     switch (activeMarketTab) {
-      case 'UserFormDetils':
-<MarketHomePage setActiveMarketTab={setActiveMarketTab} />
-        case 'EditProductPage':
-        return <EditPage setActiveMarketTab={activeMarketTab} />;
+      case 'MarketHomePage':
+        return <MarketHomePage setActiveMarketTab={setActiveMarketTab} />
       default:
         return <WelcomeFarmPage />;
     }
   };
-  
+
   return (
     <div className='relative h-[100vh] overflow-y-auto'>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Farm Market - Farm Direct</title>
       </Helmet>
-      <TopTab setActiveMarketTab={setActiveMarketTab}  activeMarketTab={activeMarketTab}  />
+      <TopTab setActiveMarketTab={setActiveMarketTab} activeMarketTab={activeMarketTab} />
       {renderContent()}
       <BottomTab activeTab='Market' />
     </div>
