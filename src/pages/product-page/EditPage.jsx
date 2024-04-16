@@ -55,7 +55,7 @@ const EditPage = ({ setActiveProductTab }) => {
         </div>
         <div className='p-2 border-[#D8D8DA] border-2
         flex items-center justify-center rounded-md'>
-          <p className='text-base text-[#D8D8DA]'>Preview In Market</p>
+          <p className='text-base text-[#D8D8DA] text-center'>Preview In Market</p>
         </div>
       </div>
       {/* thubmnail product section */}
