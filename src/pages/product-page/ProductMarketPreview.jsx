@@ -40,31 +40,50 @@ const ProductMarketPreview = ({ setActiveProductTab }) => {
     setActiveProductTab('EditPage'); // Update the active tab 
   };
 
+
+    // State to track the active tab
+    const [activeSubHeadTab, setActiveSubHeadTab] = useState('Cabbage');
+
+    // Function to handle tab click
+    const handleTabClick = (tabName) => {
+      setActiveSubHeadTab(tabName);
+    };
+
   return (
     <div className='flex flex-col w-full h-[600px] px-2 py-0 items-center 
     mt-4 gap-4 overflow-auto mb-20'>
       <ButtonFarmDirect title='Save Farm Details' onClick={handleSetupFarmClick} />
       {/* sub tab header */}
       <div className='w-full h-12 grid grid-cols-3'>
-        <div className='w-full border-b-[#65A30D] border-2
-        flex items-center justify-center p-2 border-[#FFFBEB]' >
-          <p className='font-normal text-base'>
-            Cabbage
-          </p>
-        </div>
-        <div className='w-full
-        flex items-center justify-center p-2 border-[#FFFBEB]' >
-          <p className='font-normal text-base'>
-            Cane Sugar
-          </p>
-        </div>
-        <div className='w-full
-        flex items-center justify-center p-2 border-[#FFFBEB]' >
-          <p className='font-normal text-base'>
-            Carrots
-          </p>
-        </div>
+      {/* Cabbage Tab */}
+      <div 
+        className={`w-full border-b-[#65A30D] border-2 flex items-center justify-center p-2 border-[#FFFBEB] cursor-pointer 
+        ${activeSubHeadTab !== 'Cabbage' && 'border-b-0'}`}
+        onClick={() => handleTabClick('Cabbage')}
+      >
+        <p className='font-normal text-base'>
+          Cabbage
+        </p>
       </div>
+      {/* Cane Sugar Tab */}
+      <div 
+        className={`w-full border-b-[#65A30D] border-2 flex items-center justify-center p-2 border-[#FFFBEB] cursor-pointer ${activeSubHeadTab !== 'Cane Sugar' && 'border-b-0'}`}
+        onClick={() => handleTabClick('Cane Sugar')}
+      >
+        <p className='font-normal text-base'>
+          Cane Sugar
+        </p>
+      </div>
+      {/* Carrots Tab */}
+      <div 
+        className={`w-full border-b-[#65A30D] border-2 flex items-center justify-center p-2 border-[#FFFBEB] cursor-pointer ${activeSubHeadTab !== 'Carrots' && 'border-b-0'}`}
+        onClick={() => handleTabClick('Carrots')}
+      >
+        <p className='font-normal text-base'>
+          Carrots
+        </p>
+      </div>
+    </div>
       {/* thubmnail product section */}
       <div className='w-full h-[300px] rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-row shadow-md'>
@@ -179,8 +198,8 @@ const ProductMarketPreview = ({ setActiveProductTab }) => {
             <p className='text-sm text-[#44403C]'>10-30 ppm</p>
           </div>
           <div className='flex flex-col gap-1 text-center'>
-            <h6 className='text-[#44403C] text-xl font-extrabold'>Nitrogen
-            <br />N (PPM)</h6>
+            <h6 className='text-[#44403C] text-xl font-extrabold'>Potassium
+            <br />K (PPM)</h6>
             <div className='flex items-center justify-center'>
             <FontAwesomeIcon icon={faArrowUp} className=' text-2xl text-[#EA7806]' />
             <p className='text-3xl text-[#EA7806] font-bold ml-[2px]'>50</p>
