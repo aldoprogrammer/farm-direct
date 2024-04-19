@@ -7,7 +7,7 @@ import TopBarLogoLink from '../assets/topBarLogoLink.png';
 import TopComponent from '../assets/TopComponent.png';
 import DoneFarmerRegisBG from '../assets/done-farmer-regis-bg.png'; // Import the background image for "Done" tab
 import PencilIcon from '../assets/pencilIcon.png';
-const TopTab = ({ activeFarmTab, setActiveFarmTab }) => {
+const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab }) => {
   const handleBack = () => {
     setActiveFarmTab('WelcomeFarmPage');
   };
@@ -70,6 +70,8 @@ const TopTab = ({ activeFarmTab, setActiveFarmTab }) => {
           <img src={TopComponent} alt="Background" className='w-full h-5 absolute bottom-0 z-10' />
         </div>
       )}
+      {/* tab in market page */}
+      {activeMarketTab == 'MarketHomePage' && (
       <div className='w-full flex flex-row items-center 
       justify-center mx-auto bg-[#FFFFFF] h-[70px] shadow-md
       overflow-hidden'>
@@ -107,6 +109,7 @@ const TopTab = ({ activeFarmTab, setActiveFarmTab }) => {
           </div>
         </div>
       </div>
+      )}
     </>
   );
 };

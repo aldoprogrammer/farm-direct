@@ -17,7 +17,7 @@ const Market = () => {
   const renderContent = () => {
     switch (activeMarketTab) {
       case 'MarketHomePage':
-        return <MarketHomePage setActiveMarketTab={setActiveMarketTab} />
+        return <MarketHomePage setActiveMarketTab={activeMarketTab} />
       default:
         return <WelcomeFarmPage />;
     }
