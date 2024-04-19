@@ -9,6 +9,7 @@ import UserFormDetails from '../../users/UserFormDetails';
 import FirstProduct from '../../product-page/FirstProduct';
 import EditPage from '../../product-page/EditPage';
 import MarketHomePage from '../../market/MarketHomePage';
+import DetailsProductMarketHomePage from '../../market/DetailProductMarketHomePage';
 
 
 const Market = () => {
@@ -17,7 +18,9 @@ const Market = () => {
   const renderContent = () => {
     switch (activeMarketTab) {
       case 'MarketHomePage':
-        return <MarketHomePage setActiveMarketTab={activeMarketTab} />
+        return <MarketHomePage setActiveMarketTab={setActiveMarketTab} />
+        case 'DetailsProductMarketHomePage':
+        return <DetailsProductMarketHomePage setActiveMarketTab={activeMarketTab} />
       default:
         return <WelcomeFarmPage />;
     }

@@ -4,6 +4,8 @@ import MarketTabIcon from '../assets/marketTabIcon.png';
 import FarmTabIcon from '../assets/farmTabIcon.png';
 import AccountTabIcon from '../assets/accountTabIcon.png';
 import ProductTabIcon from '../assets/productTabIcon.png';
+import { faSeedling } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const BottomTab = ({ activeTab }) => {
   const navigate = useNavigate();
@@ -26,7 +28,7 @@ const BottomTab = ({ activeTab }) => {
         className={`flex cursor-pointer h-full justify-center items-center ${activeTab === 'Farm' ? 'bg-[#65A30D]' : ''}`}
         onClick={() => handleTabClick('Farm', '/farm')}
       >
-        <img src={FarmTabIcon} alt="Farm" className="h-4 w-4" />
+  <FontAwesomeIcon icon={faSeedling} className='text-white w-4 h-4' />
       </div>
       <div
         className={`flex cursor-pointer h-full justify-center items-center ${activeTab === 'Product' ? 'bg-[#65A30D]' : ''}`}

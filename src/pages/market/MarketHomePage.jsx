@@ -1,17 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import FarmEditButton from '../../components/FarmEditButton';
 import ButtonFarmDirect from '../../components/ButtonFarmDirect';
+import ThumbnailProduct from '../../assets/product1.png';
+import ThumbnailProduct2 from '../../assets/product2.png';
+import ThumbnailProduct3 from '../../assets/product3.png';
 import FarmDetailsFormModal from '../../modal/FarmDetailsFormModal';
 import FarmAddressDetailsFormModal from '../../modal/FarmAddressDetailsFormModal';
 import UserFarmerShoperModal from '../../modal/UserFarmerShoperModal';
+import { faCartShopping, faSeedling, faStoreAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Rating } from '@material-tailwind/react';
 
 const MarketHomePage = ({ setActiveMarketTab }) => {
-  const [showModalShoperFarmer, setShowModalShoperFarmer] = useState(false); // State to manage modal visibility
-  const [showModalAddress, setShowModalAddress] = useState(false); // State to manage modal visibility
-
+  const [showModalShoperFarmer, setShowModalShoperFarmer] = useState(false);
+  const [showModalAddress, setShowModalAddress] = useState(false);
 
   const handleEditFarmerShoper = () => {
-    setShowModalShoperFarmer(true); // Show the modal when the button is clicked
+    setShowModalShoperFarmer(true);
   };
 
   const handleCloseEditShoperFarmer = () => {
@@ -19,76 +24,65 @@ const MarketHomePage = ({ setActiveMarketTab }) => {
   };
 
   const handleEditAddress = () => {
-    setShowModalAddress(true); // Show the modal when the button is clicked
+    setShowModalAddress(true);
   };
 
   const handleCloseEditAddress = () => {
     setShowModalAddress(!showModalAddress);
   };
 
-
-  const handleSetupFarmClick = () => {
-    setActiveMarketTab('Done'); // Update the active tab 
+  const handleDetailsMarketProduct = () => {
+    setActiveMarketTab('DetailsProductMarketHomePage');
   };
 
+  const dataDummyMarket = [
+    {
+      image: ThumbnailProduct,
+    },
+    {
+      image: ThumbnailProduct2,
+    },
+    {
+      image: ThumbnailProduct3,
+    },
+    {
+      image: ThumbnailProduct,
+    },
+    {
+      image: ThumbnailProduct2,
+    }
+  ];
+
   return (
-    <div className='flex flex-col w-full h-[600px] px-2 py-0 items-center 
-    mt-4 gap-4 overflow-auto mb-20'>
-      <ButtonFarmDirect title='Save Farm Details' onClick={handleSetupFarmClick} />
-      <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
-      flex flex-col shadow-md gap-5'>
-        <div className='flex gap-2 justify-between'>
-          <p className='font-bold'>
-          Market Place
-            </p>
-          <FarmEditButton handleClick={handleEditFarmerShoper} />
-        </div>
-      </div>
-      {/* <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
-      flex flex-col shadow-md gap-5'>
-        <div className='flex items-left gap-2 justify-between w-full'>
-          <div className='flex flex-col'>
-          <p className='font-bold'>Your Name</p>
-          <p>Aldo LS</p>
+    <div className='flex flex-col w-full h-[600px] px-2 py-0 items-center mt-4 gap-4 overflow-auto mb-20'>
+      {/* thumbnail product section */}
+      {dataDummyMarket.map((item, index) => (
+        <div key={index}
+          className='w-full md:h-[300px] rounded-xl bg-[#ffffff] text-[#000000] h-[215px] flex flex-row shadow-md p-4 gap-2'
+          onClick={handleDetailsMarketProduct}>
+          <div className='w-2/5'>
+            <img src={item.image} alt="" className='w-full h-full' />
           </div>
-          <FarmEditButton  />
-        </div>
-      </div>
-      <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
-      flex flex-col shadow-md gap-5'>
-        <div className='flex items-left gap-2 justify-between w-full'>
-          <div className='flex flex-col w-4/5'>
-            <p className='font-bold'>Address:</p>
-            <span className='text-sm font-normal'>
-              4567 Meridian Street
-              Bellingham, WA 98225
-            </span>
-          </div>
-          <FarmEditButton handleClick={handleEditAddress} />
-        </div>
-      </div>
-      <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
-      flex flex-col shadow-md gap-5'>
-        <div className='flex flex-col items-left gap-2 justify-between w-full'>
-          <p className='font-bold'>Create Your Wallet</p>
-          <div className='flex flex-col justify-center items-center'>
-            <ButtonFarmDirect title='Create Your Wallet' />
+          <div className='flex flex-col gap-1 w-3/5'>
+            <h5 className='font-bold text-[#44403C] md:text-3xl text-xl'>
+              Description of the <br />
+              product name
+            </h5>
+            <h6 className='font-black text-[#44403C] mt-1 md:text-4xl font-roboto-slab text-xl'>
+              $7.00 LB
+            </h6>
+            <Rating value={3} readonly />
+            <button className='w-fit bg-[#65A30D] py-[14px] px-8 rounded-md text-[#FFFFFF] my-2 flex flex-row items-center gap-3'>
+              <FontAwesomeIcon icon={faCartShopping} className='text-white w-4 h-4' />
+              <p>Purchase</p>
+            </button>
           </div>
         </div>
-      </div>
-      <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
-      flex flex-col shadow-md gap-5'>
-        <div className='flex items-left gap-2 justify-between w-full'>
-          <div className='flex flex-col w-4/5'>
-            <p className='font-bold'>Change Password</p>
-          </div>
-          <FarmEditButton />
-        </div>
-      </div> */}
+      ))}
       {showModalShoperFarmer && <UserFarmerShoperModal closeModal={handleCloseEditShoperFarmer} />}
       {showModalAddress && <FarmAddressDetailsFormModal closeModal={handleCloseEditAddress} />}
     </div>
-  )
-}
+  );
+};
 
-export default MarketHomePage
+export default MarketHomePage;
