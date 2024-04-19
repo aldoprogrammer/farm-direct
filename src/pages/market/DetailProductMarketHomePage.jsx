@@ -10,18 +10,19 @@ import UserFarmerShoperModal from '../../modal/UserFarmerShoperModal';
 import { faCartShopping, faSeedling, faStoreAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Option, Rating, Select } from '@material-tailwind/react';
+import PurchaseModal from '../../modal/PurchaseModal';
 
 const DetailsProductMarketHomePage = ({ setActiveMarketTab }) => {
-  const [showModalShoperFarmer, setShowModalShoperFarmer] = useState(false);
+  const [showModalPurchase, setShowModalPurchase] = useState(false);
   const [showModalAddress, setShowModalAddress] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState("1 Package"); // Initial state
 
-  const handleEditFarmerShoper = () => {
-    setShowModalShoperFarmer(true);
+  const handlePurchaseModal = () => {
+    setShowModalPurchase(true);
   };
 
-  const handleCloseEditShoperFarmer = () => {
-    setShowModalShoperFarmer(!showModalShoperFarmer);
+  const handleCloseModalPurchase = () => {
+    setShowModalPurchase(!showModalPurchase);
   };
 
   const handleEditAddress = () => {
@@ -82,13 +83,15 @@ const DetailsProductMarketHomePage = ({ setActiveMarketTab }) => {
 
           <button className='w-fit bg-[#65A30D]
              py-[14px] px-8 rounded-md text-[#FFFFFF] my-2 
-             flex flex-row items-center gap-3 mx-auto'>
+             flex flex-row items-center gap-3 mx-auto'
+             onClick={handlePurchaseModal}
+             >
             <FontAwesomeIcon icon={faCartShopping} className='text-white w-4 h-4' />
             <p>Purchase</p>
           </button>
         </div>
       </div>
-      {showModalShoperFarmer && <UserFarmerShoperModal closeModal={handleCloseEditShoperFarmer} />}
+      {showModalPurchase && <PurchaseModal closeModal={handleCloseModalPurchase} />}
       {showModalAddress && <FarmAddressDetailsFormModal closeModal={handleCloseEditAddress} />}
     </div>
   );
