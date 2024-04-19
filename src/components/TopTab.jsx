@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeftLong, faCog, faPlus } from '@fortawesome/free-solid-svg-icons'; // Import the specific arrow icon
+import { faArrowLeftLong, faCheckCircle, faCheckSquare, faCog, faPlus } from '@fortawesome/free-solid-svg-icons'; // Import the specific arrow icon
 import BackgroundNoImage from '../assets/topHeaderNoImage.png';
 import TopBarLogoLink from '../assets/topBarLogoLink.png';
 import TopComponent from '../assets/TopComponent.png';
@@ -70,6 +70,43 @@ const TopTab = ({ activeFarmTab, setActiveFarmTab }) => {
           <img src={TopComponent} alt="Background" className='w-full h-5 absolute bottom-0 z-10' />
         </div>
       )}
+      <div className='w-full flex flex-row items-center 
+      justify-center mx-auto bg-[#FFFFFF] h-[70px] shadow-md
+      overflow-hidden'>
+        <div className='w-[90%] flex items-center gap-3 justify-center
+        '>
+          <div className='w-auto overflow-x-auto flex items-center gap-2
+          py-4'>
+            <div className="flex items-center gap-2 border-[#D8D8DA] border-[2px] rounded-md py-[4px] px-[10px]">
+              <FontAwesomeIcon icon={faCheckCircle} className="text-[#17B530] font-bold" />
+              <p style={{ whiteSpace: "nowrap" }}>Near Me</p>
+            </div>
+            <div className="flex items-center gap-2 
+          border-[#D8D8DA] border-[2px] rounded-md w-fit py-[4px] px-[10px]">
+              <FontAwesomeIcon icon={faCheckCircle}
+                className="text-[#17B530] font-bold" />
+              <p>Supplies</p>
+            </div>
+            <div className="flex items-center gap-2 
+          border-[#D8D8DA] border-[2px] rounded-md w-fit py-[4px] px-[10px]">
+              <FontAwesomeIcon icon={faCheckCircle}
+                className="text-[#17B530] font-bold" />
+              <p>Supplies</p>
+            </div>
+            <div className="flex items-center gap-2 
+          border-[#D8D8DA] border-[2px] rounded-md w-fit py-[4px] px-[10px]">
+              <FontAwesomeIcon icon={faCheckCircle}
+                className="text-[#17B530] font-bold" />
+              <p>Delivery</p>
+            </div>
+            <div className='w-[40px] h-[40px] p-4 rounded-full
+          flex items-center justify-center text-black
+          cursor-pointer border-[2px] border-[#D8D8DA]'>
+              <FontAwesomeIcon icon={faPlus} /> {/* Specify the plus icon */}
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

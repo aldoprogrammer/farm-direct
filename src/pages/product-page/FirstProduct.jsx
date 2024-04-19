@@ -41,15 +41,15 @@ const FirstProduct = ({ setActiveProductTab }) => {
       flex flex-col shadow-md gap-5'>
         <div className='flex gap-2 justify-between'>
           <p className='font-bold'>
-          Your First Product
-            </p>
+            Your First Product
+          </p>
           <FarmEditButton handleClick={handleEditProduct} />
         </div>
       </div>
       <div className='fixed bottom-16 right-3 bg-[#65A30D] w-[40px] h-[40px] p-2 rounded-full
           flex items-center justify-center text-white z-20 cursor-pointer'>
-            <FontAwesomeIcon icon={faPlus} /> {/* Specify the plus icon */}
-          </div>
+        <FontAwesomeIcon icon={faPlus} /> {/* Specify the plus icon */}
+      </div>
       {showModalShoperFarmer && <UserFarmerShoperModal closeModal={handleCloseEditShoperFarmer} />}
     </div>
   )
