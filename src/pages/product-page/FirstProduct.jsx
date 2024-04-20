@@ -87,7 +87,7 @@ const FirstProduct = ({ setActiveProductTab }) => {
             <div key={index} className='w-full h-auto px-4 py-1 rounded-full bg-[#ffffff] text-[#000000] flex items-center shadow-md gap-5 justify-between
             mb-1'>
               <p className='font-bold text-base'>{vegetable.name}</p>
-              <FarmEditButton />
+              <FarmEditButton handleClick={handleCreateNewProduct} />
             </div>
           ))}
         </>
