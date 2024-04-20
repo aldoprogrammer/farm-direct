@@ -2,8 +2,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import ButtonFarmDirect from '../components/ButtonFarmDirect';
 import ButtonCancel from '../components/ButtonCancel';
+import Swal from 'sweetalert2';
 
-const RegisterFarmModal = ({ closeModal }) => {
+const RegisterFarmModal = ({ closeModal, setFillUserProfile }) => {
+    const handleRegisterFarmBlockchain = () => {
+        
+        setFillUserProfile('register');
+
+        // Close the modal
+        closeModal();
+
+        // Show SweetAlert success message
+        Swal.fire({
+            icon: 'success',
+            title: 'Farm Registered Successfully!',
+            text: 'Your farm has been successfully registered to the blockchain.',
+        });
+    };
     return (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50 backdrop-filter backdrop-blur-sm">
             <div className="absolute w-full h-full bg-gray-900 opacity-50" onClick={closeModal}></div>
@@ -39,7 +54,7 @@ const RegisterFarmModal = ({ closeModal }) => {
                     <div className=' flex 
                 items-center justify-between flex-row'>
                         <ButtonCancel onClick={closeModal} />
-                        <ButtonFarmDirect title="Register" />
+                        <ButtonFarmDirect title="Register" onClick={handleRegisterFarmBlockchain} />
                     </div>
                 </div>
             </div>
