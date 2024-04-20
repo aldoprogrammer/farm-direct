@@ -4,10 +4,19 @@ import ButtonFarmDirect from '../../components/ButtonFarmDirect';
 import FarmDetailsFormModal from '../../modal/FarmDetailsFormModal';
 import FarmAddressDetailsFormModal from '../../modal/FarmAddressDetailsFormModal';
 import { Link } from 'react-router-dom';
+import RegisterFarmModal from '../../modal/RegisterFarmModal';
 
 const FarmDetailsForm = ({setActiveFarmTab}) => {
   const [showModalFarmBussiness, setShowModalFarmBussiness] = useState(false); // State to manage modal visibility
+  const [showModalRegisterFarmBlockchain, setShowModalRegisterFarmBlockchain] = useState(false); // State to manage modal visibility
 
+  const handleRegisterFarmBlockchain = () => {
+    setShowModalRegisterFarmBlockchain(true); // Show the modal when the button is clicked
+  };
+
+  const handleCloseRegisterFarmBlockchain = () => {
+    setShowModalRegisterFarmBlockchain(!showModalRegisterFarmBlockchain);
+  };
 
   const handleEditFarmBussiness = () => {
     setShowModalFarmBussiness(true); // Show the modal when the button is clicked
@@ -96,7 +105,7 @@ It’s very easy and safe!
         )}
 
         {isUserProfileFilled && (
-        <div className='flex flex-col justify-center items-center'>
+        <div className='flex flex-col justify-center items-center' onClick={handleRegisterFarmBlockchain}>
             <ButtonFarmDirect title='Register On Blockchain' />
           </div>  
         )}
@@ -114,6 +123,7 @@ It’s very easy and safe!
         </div>
       </div>
       {showModalFarmBussiness && <FarmDetailsFormModal closeModal={handleCloseEditFarmBussiness} />}
+      {showModalRegisterFarmBlockchain && <RegisterFarmModal closeModal={handleCloseRegisterFarmBlockchain} />}
       
     </div>
   )
