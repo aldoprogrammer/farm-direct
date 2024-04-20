@@ -19,7 +19,7 @@ const BottomTab = ({ activeTab }) => {
   return (
     <footer className='bg-[#44403C] w-full h-12 justify-between items-center grid grid-cols-4 fixed bottom-0'>
       <div
-        className={`flex cursor-pointer h-full justify-center items-center ${activeTab === 'Market' ? 'bg-[#65A30D]' : ''}`}
+        className={`flex cursor-pointer h-full justify-center items-center ${activeTab === 'Market' ? 'bg-[#B45309]' : ''}`}
         onClick={() => handleTabClick('Market', '/market')}
       >
         <img src={MarketTabIcon} alt="Market" className="h-4 w-4" />
@@ -37,7 +37,7 @@ const BottomTab = ({ activeTab }) => {
         <img src={ProductTabIcon} alt="Product" className="h-4 w-4" />
       </div>
       <div
-        className={`flex cursor-pointer h-full justify-center items-center ${activeTab === 'Account' ? 'bg-[#65A30D]' : ''}`}
+        className={`flex cursor-pointer h-full justify-center items-center ${activeTab === 'Account' ? 'bg-[#B45309]' : ''}`}
         onClick={() => navigate('/user-profile')} // Directly navigate to the account tab
       >
         <img src={AccountTabIcon} alt="Account" className="h-4 w-4" />
