@@ -3,6 +3,7 @@ import FarmEditButton from '../../components/FarmEditButton';
 import ButtonFarmDirect from '../../components/ButtonFarmDirect';
 import FarmDetailsFormModal from '../../modal/FarmDetailsFormModal';
 import FarmAddressDetailsFormModal from '../../modal/FarmAddressDetailsFormModal';
+import { Link } from 'react-router-dom';
 
 const FarmDetailsForm = ({setActiveFarmTab}) => {
   const [showModalFarmBussiness, setShowModalFarmBussiness] = useState(false); // State to manage modal visibility
@@ -20,6 +21,15 @@ const FarmDetailsForm = ({setActiveFarmTab}) => {
   const handleSetupFarmClick = () => {
     setActiveFarmTab('Done'); // Update the active tab 
   };
+
+  const handleRegisterWalletClick = () => {
+    // Set a value in localStorage indicating that the user has filled their profile
+    localStorage.setItem('fillUserProfile', 'done');
+  };
+
+   // Check if the value in localStorage is 'done'
+   const isUserProfileFilled = localStorage.getItem('fillUserProfile') === 'done';
+
 
   return (
     <div className='flex flex-col w-full h-[600px] px-2 py-0 items-center 
@@ -53,17 +63,47 @@ const FarmDetailsForm = ({setActiveFarmTab}) => {
         </div>
         
       </div>
+      {/* Create Your Wallet Button */}
+      
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5'>
         <div className='flex items-left gap-2 justify-between w-full'>
           <div className='flex flex-col w-4/5'>
-            <p className='font-bold'>Blockchain ID:</p>
-            <span className='text-sm font-normal'>To register your farm on blockchain,
-              create your wallet</span>
+          {!isUserProfileFilled && (
+            <>
+          <p className='font-bold'>Blockchain ID:</p>
+          <span className='text-sm font-normal'>To register your farm on blockchain,
+            create your wallet</span>  
+            </>
+          )}
+           {isUserProfileFilled && (
+            <>
+          <span className='text-sm font-normal'>
+          To list your products in FarmDirect’s market place
+you need to register your farm on Blockchain.
+It’s very easy and safe! 
+            </span>  
+            </>
+          )}
+          
           </div>
-          <FarmEditButton />
         </div>
+        {!isUserProfileFilled && (
+        <div className='flex flex-col justify-center items-center'
+        onClick={handleRegisterWalletClick}>
+            <ButtonFarmDirect title='Create Your Wallet' />
+          </div>  
+        )}
+
+        {isUserProfileFilled && (
+        <div className='flex flex-col justify-center items-center'>
+            <ButtonFarmDirect title='Register On Blockchain' />
+          </div>  
+        )}
+        
+        
       </div>
+      
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5'>
         <div className='flex flex-col items-left gap-2 justify-between w-full'>
