@@ -9,7 +9,8 @@ const FarmAddressDetailsFormModal = ({ closeModal }) => {
             <div className="absolute w-full h-full bg-gray-900 opacity-50" onClick={closeModal}></div>
 
             {/* modal background white */}
-            <div className="relative w-[90%] h-[90vh] bg-white rounded-lg shadow-lg py-2 px-2">
+            <div className="relative w-[90%] h-[50vh]
+             bg-white rounded-lg shadow-lg py-2 px-2">
 
                 {/* top title */}
                 <div className='flex items-center justify-between'>
@@ -26,7 +27,7 @@ const FarmAddressDetailsFormModal = ({ closeModal }) => {
                 </div>
                 {/* Content */}
                 <div className="text-center mb-4 h-4/5 flex flex-col justify-center items-center">
-                    <h3 className='text-xl font-body'>
+                    <h3 className='text-xl font-body mb-10'>
                         Get Exact Location from GPS
                     </h3>
                 </div>

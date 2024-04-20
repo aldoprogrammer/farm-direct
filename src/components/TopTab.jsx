@@ -7,9 +7,13 @@ import TopBarLogoLink from '../assets/topBarLogoLink.png';
 import TopComponent from '../assets/TopComponent.png';
 import DoneFarmerRegisBG from '../assets/done-farmer-regis-bg.png'; // Import the background image for "Done" tab
 import PencilIcon from '../assets/pencilIcon.png';
-const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab }) => {
+const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab, setActiveMarketTab }) => {
   const handleBack = () => {
     setActiveFarmTab('WelcomeFarmPage');
+  };
+
+  const handleBackMarketTab = () => {
+    setActiveMarketTab('MarketHomePage');
   };
 
   let backgroundImage = BackgroundNoImage; // Default background image
@@ -20,15 +24,28 @@ const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab }) => {
 
   return (
     <>
+    {/* dashboard tab  */}
       {activeFarmTab === 'FarmDetails' && (
         <div className='bg-[#65A30D] h-12 w-full p-2 flex items-center justify-between text-[#FFFFFF]'>
           <div className='flex items-center gap-3 cursor-pointer ml-2' onClick={handleBack}>
             <FontAwesomeIcon icon={faArrowLeftLong} className='font-bold' /> {/* Specify the arrow icon */}
             <p className='text-base'>Dashboard</p>
           </div>
-          <h6 className='font-bold text-[18px]'>Farm Details</h6>
+          <h6 className='font-bold text-[18px]  font-roboto-slab'>Farm Details</h6>
         </div>
       )}
+      {activeMarketTab === 'DetailsProductMarketHomePage' && (
+        <div className='bg-[#65A30D] h-12 w-full p-2 flex items-center justify-between text-[#FFFFFF]'>
+          <div className='flex items-center gap-3 cursor-pointer ml-2' onClick={handleBackMarketTab}>
+            <FontAwesomeIcon icon={faArrowLeftLong} className='font-bold' /> {/* Specify the arrow icon */}
+            <p className='text-base'>Market</p>
+          </div>
+          <h6 className='font-bold text-[18px] font-roboto-slab'>
+          Selected Product
+          </h6>
+        </div>
+      )}
+
       {activeFarmTab == 'Done' && (
         <div className='h-44 w-full bg-[#78716C] relative justify-center items-center' style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', filter: 'none' }}>
           {/* Render the logo link only if the active tab is not 'FarmDetails' */}

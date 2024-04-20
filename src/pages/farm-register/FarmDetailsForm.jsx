@@ -6,7 +6,6 @@ import FarmAddressDetailsFormModal from '../../modal/FarmAddressDetailsFormModal
 
 const FarmDetailsForm = ({setActiveFarmTab}) => {
   const [showModalFarmBussiness, setShowModalFarmBussiness] = useState(false); // State to manage modal visibility
-  const [showModalAddress, setShowModalAddress] = useState(false); // State to manage modal visibility
 
 
   const handleEditFarmBussiness = () => {
@@ -15,14 +14,6 @@ const FarmDetailsForm = ({setActiveFarmTab}) => {
 
   const handleCloseEditFarmBussiness = () => {
     setShowModalFarmBussiness(!showModalFarmBussiness);
-  };
-
-  const handleEditAddress = () => {
-    setShowModalAddress(true); // Show the modal when the button is clicked
-  };
-
-  const handleCloseEditAddress = () => {
-    setShowModalAddress(!showModalAddress);
   };
 
 
@@ -37,26 +28,30 @@ const FarmDetailsForm = ({setActiveFarmTab}) => {
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5'>
         <div className='flex items-center gap-2 justify-between'>
+          <div className='flex flex-col'>
           <p className='font-bold'>Farm (Business) Name:</p>
+            <span className='text-sm font-normal'>Aldo ls</span>
+          </div>
           <div className='flex items-center gap-1'>
             <div className='rounded-full w-4 h-4 bg-[#FFBE18]'></div>
             <p>Not listed</p>
           </div>
         </div>
-
-        <p className='font-bold mt-4'>Phone Number</p>
-        <div className='flex items-center gap-2 justify-between w-full'>
-          <p className='font-bold'>Business Id:</p>
+        <div className='flex flex-col'>
+        <p className='font-bold'>Phone Number</p>
+          <span className='text-sm font-normal'>+62 812 3456 7890</span>
+        </div>
+        <div className='flex flex-col'>
+        <p className='font-bold'>Business Id:</p>
+          <span className='text-sm font-normal'>123456789</span>
+        </div>
+        <div className='flex items-center 
+        gap-2 justify-between w-full'>
+        <p className='font-bold'>Address:</p>
           <FarmEditButton handleClick={handleEditFarmBussiness} />
           
         </div>
-      </div>
-      <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
-      flex flex-col shadow-md gap-5'>
-        <div className='flex items-left gap-2 justify-between w-full'>
-          <p className='font-bold'>Address:</p>
-          <FarmEditButton handleClick={handleEditAddress} />
-        </div>
+        
       </div>
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5'>
@@ -79,7 +74,7 @@ const FarmDetailsForm = ({setActiveFarmTab}) => {
         </div>
       </div>
       {showModalFarmBussiness && <FarmDetailsFormModal closeModal={handleCloseEditFarmBussiness} />}
-      {showModalAddress && <FarmAddressDetailsFormModal closeModal={handleCloseEditAddress} />}
+      
     </div>
   )
 }

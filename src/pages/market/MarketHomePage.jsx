@@ -63,12 +63,13 @@ const MarketHomePage = ({ setActiveMarketTab }) => {
           className='w-full md:h-[300px] rounded-xl bg-[#ffffff] text-[#000000] h-[215px] flex flex-row shadow-md p-4 gap-2'
           >
           <div className='w-2/5'>
-            <img src={item.image} alt="" className='w-full h-full' 
+            <img src={item.image} alt="" className='w-full h-full cursor-pointer' 
             onClick={handleDetailsMarketProduct}
             />
           </div>
           <div className='flex flex-col gap-1 w-3/5'>
-            <h5 className='font-bold text-[#44403C] md:text-3xl text-xl'
+            <h5 className='font-bold text-[#44403C] md:text-3xl text-xl
+            cursor-pointer'
             onClick={handleDetailsMarketProduct}>
               Description of the <br />
               product name
