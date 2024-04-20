@@ -4,6 +4,7 @@ import ButtonFarmDirect from '../../components/ButtonFarmDirect';
 import FarmDetailsFormModal from '../../modal/FarmDetailsFormModal';
 import FarmAddressDetailsFormModal from '../../modal/FarmAddressDetailsFormModal';
 import UserFarmerShoperModal from '../../modal/UserFarmerShoperModal';
+import ProductTabIcon from '../../assets/produce-empty-logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
@@ -29,7 +30,7 @@ const FirstProduct = ({ setActiveProductTab }) => {
   };
 
 
-  const handleSetupFarmClick = () => {
+  const handleCreateNewProduct = () => {
     setActiveProductTab('EditProductPage'); // Update the active tab 
   };
 
@@ -38,17 +39,21 @@ const FirstProduct = ({ setActiveProductTab }) => {
     mt-4 gap-4 overflow-auto mb-20'>
       <div className='flex flex-col gap-4 justify-center items-center
       h-full'>
-      <ButtonFarmDirect title='Save Farm Details' onClick={handleSetupFarmClick} />
+      {/* <ButtonFarmDirect title='Save Farm Details' onClick={handleSetupFarmClick} /> */}
           <p className='font-bold text-2xl'>
           Your Produce List is Empty
           </p>
           <p className='text-center text-base
-           text-[#44403C] font-[500]'>
+           text-[#44403C] font-[600]'>
           Add Your First Product
         </p>
+        <img src={ProductTabIcon} alt="ProductTabIcon" 
+        className='w-20 h-20 mt-10' />
           </div>
+
       <div className='fixed bottom-16 right-3 bg-[#65A30D] w-[40px] h-[40px] p-2 rounded-full
-          flex items-center justify-center text-white z-20 cursor-pointer'>
+          flex items-center justify-center text-white z-20 cursor-pointer'
+          onClick={handleCreateNewProduct}>
         <FontAwesomeIcon icon={faPlus} /> {/* Specify the plus icon */}
       </div>
       {showModalShoperFarmer && <UserFarmerShoperModal closeModal={handleCloseEditShoperFarmer} />}

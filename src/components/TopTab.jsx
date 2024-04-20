@@ -7,13 +7,17 @@ import TopBarLogoLink from '../assets/topBarLogoLink.png';
 import TopComponent from '../assets/TopComponent.png';
 import DoneFarmerRegisBG from '../assets/done-farmer-regis-bg.png'; // Import the background image for "Done" tab
 import PencilIcon from '../assets/pencilIcon.png';
-const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab, setActiveMarketTab }) => {
+const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab, setActiveMarketTab, activeProductTab, setActiveProductTab }) => {
   const handleBack = () => {
     setActiveFarmTab('WelcomeFarmPage');
   };
 
   const handleBackMarketTab = () => {
     setActiveMarketTab('MarketHomePage');
+  };
+
+  const handleBackProductTab = () => {
+    setActiveProductTab('FirstProduct');
   };
 
   let backgroundImage = BackgroundNoImage; // Default background image
@@ -43,6 +47,17 @@ const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab, setActiveMar
           <h6 className='font-bold text-[18px] font-roboto-slab'>
           Selected Product
           </h6>
+        </div>
+      )}
+      {activeProductTab === 'EditProductPage' && (
+        <div className='bg-[#65A30D] h-12 w-full p-2 flex items-center justify-between text-[#FFFFFF]'>
+          <div className='flex items-center gap-3 cursor-pointer ml-2' onClick={handleBackProductTab}>
+            <FontAwesomeIcon icon={faArrowLeftLong} className='font-bold' /> {/* Specify the arrow icon */}
+            <p className='text-base'>Dashboard</p>
+          </div>
+          <h6 className='font-bold text-[18px]  font-roboto-slab'>
+          Edit Your Product
+            </h6>
         </div>
       )}
 
