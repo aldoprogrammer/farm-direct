@@ -2,14 +2,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ButtonFarmDirect from '../components/ButtonFarmDirect';
 import ButtonCancel from '../components/ButtonCancel';
-import { Checkbox } from '@material-tailwind/react';
+import { Checkbox, Option, Select } from '@material-tailwind/react';
 
 const EditProductFormModal = ({ closeModal }) => {
     const [registerBlockchain, setRegisterBlockchain] = useState(false);
-    const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState('');
+    const [selectedPreHarvestOrHarvested, setSelectedPreHarvestOrHarvested] = useState('pre-harvested');
 
-    const handleDeliveryMethodChange = (method) => {
-        setSelectedDeliveryMethod(method);
+    const [isCheckedListMarket, setIsCheckedListMarket] = useState(true); // Set initial state to true for checked
+
+    const handleHarvestedMethodChange = (method) => {
+        setSelectedPreHarvestOrHarvested(method);
     };
 
     const handleRegisterBlockchainChange = (e) => {
@@ -48,57 +50,91 @@ const EditProductFormModal = ({ closeModal }) => {
                                 className='py-2 px-3 rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
                             />
                         </div>
-                        {/* Checkbox above */}
-                        <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-blue-gray-700 mt-5">
-                            <label className="flex items-center w-full px-1 py-0 cursor-pointer">
-                                <Checkbox
-                                    checked={selectedDeliveryMethod === 'delivery'}
-                                    onChange={() => handleDeliveryMethodChange('delivery')}
-                                    ripple={false}
-                                    className="h-[20px] w-[20px] rounded-full border-gray-900/20 bg-gray-900/10 transition-all hover:scale-105 hover:before:opacity-0"
-                                />
-                                <span className="ml-0 text-[#000000]">
-                                    Pre-harvest
-                                </span>
-                            </label>
-                            <label className="flex items-center w-full px-1 py-0 cursor-pointer">
-                                <Checkbox
-                                    checked={selectedDeliveryMethod === 'pickup'}
-                                    onChange={() => handleDeliveryMethodChange('pickup')}
-                                    ripple={false}
-                                    className="h-[20px] w-[20px] rounded-full border-gray-900/20 bg-gray-900/10 transition-all hover:scale-105 hover:before:opacity-0"
-                                />
-                                <span className="ml-0 text-[#000000]">Harvested, ready for sale</span>
-                            </label>
-                        </nav>
-                        <div className='my-2 flex flex-col gap-1 align-center'>
-                            <label htmlFor="phoneNumber" className='text-left font-semibold'>
-                                Quan
-                            </label>
-                            <input
-                                type="text"
-                                name="phoneNumber"
-                                id="phoneNumber"
-                                placeholder='Enter phone number'
-                                className='py-2 px-3 rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
-                            />
-                        </div>
-                        <div className='my-2 flex flex-col gap-1 align-center'>
-                            <label htmlFor="businessId" className='text-left font-semibold'>
-                                Price
-                            </label>
-                            <input
-                                type="text"
-                                name="businessId"
-                                id="businessId"
-                                placeholder='Enter business ID'
-                                className='py-2 px-3 rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
-                            />
-                        </div>
+                       {/* Checkbox above */}
+<nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-blue-gray-700 mt-5">
+    <label className="flex items-center w-full px-1 py-0 cursor-pointer">
+        <Checkbox
+            checked={selectedPreHarvestOrHarvested === 'pre-harvested'}
+            onChange={() => handleHarvestedMethodChange('pre-harvested')}
+            ripple={false}
+            className="h-[20px] w-[20px] rounded-full border-gray-900/20 bg-gray-900/10 transition-all hover:scale-105 hover:before:opacity-0"
+        />
+        <span className="ml-0 text-[#000000]">
+            Pre-harvest
+        </span>
+    </label>
+    <label className="flex items-center w-full px-1 py-0 cursor-pointer">
+        <Checkbox
+            checked={selectedPreHarvestOrHarvested === 'harvested'}
+            onChange={() => handleHarvestedMethodChange('harvested')}
+            ripple={false}
+            className="h-[20px] w-[20px] rounded-full border-gray-900/20 bg-gray-900/10 transition-all hover:scale-105 hover:before:opacity-0"
+        />
+        <span className="ml-0 text-[#000000]">Harvested, ready for sale</span>
+    </label>
+</nav>
+
+                        {/* if harvested clicked */}
+                        {selectedPreHarvestOrHarvested === 'harvested' && (
+                            <>
+                                <div className='flex flex-col items-center w-full'>
+                                    <div className='my-2 w-full flex flex-col gap-1'>
+                                        <label htmlFor="phoneNumber" className='text-left font-semibold'>
+                                            Stock quantity (required)
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="phoneNumber"
+                                            id="phoneNumber"
+                                            placeholder='Enter phone number'
+                                            className='py-2 px-3 rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
+                                        />
+                                    </div>
+                                    <div className='my-2 w-full flex flex-col 
+ gap-1 font-semibold'>
+                                        <p className='text-[14px] text-left'>Units <span>(required)</span></p>
+                                        <div className="w-full text-left">
+                                            <Select label="Select">
+                                                <Option>1 Package</Option>
+                                                <Option>2 Package</Option>
+                                                <Option>3 Package</Option>
+                                            </Select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='my-2 flex flex-col gap-1 align-center'>
+                                    <label htmlFor="businessId" className='text-left font-semibold'>
+                                        Price
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="businessId"
+                                        id="businessId"
+                                        placeholder='Enter business ID'
+                                        className='py-2 px-3 rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
+                                    />
+                                </div>
+                                <div className='my-2 w-full flex flex-col 
+ gap-1 font-semibold'>
+                                    <p className='text-[14px] text-left'>
+                                        Per unit
+                                    </p>
+                                    <div className="w-full text-left">
+                                        <Select label="Value">
+                                            <Option>1 Package</Option>
+                                            <Option>2 Package</Option>
+                                            <Option>3 Package</Option>
+                                        </Select>
+                                    </div>
+                                </div>
+                            </>
+                        )}
+
+                        {/* if harvested clicked ends */}
                     </div>
 
                     {/* Second Form */}
-                    <div className="text-center mt-20">
+                    <div className="text-center mt-0">
                         <div className='my-2 flex flex-col gap-1 align-center'>
                             <label htmlFor="farmName" className='text-left font-semibold'>
                                 Date Planted
@@ -113,7 +149,7 @@ const EditProductFormModal = ({ closeModal }) => {
                         </div>
                         <div className='my-2 flex flex-col gap-1 align-center'>
                             <label htmlFor="phoneNumber" className='text-left font-semibold'>
-                                Expected to be harvested
+                                Harvested
                             </label>
                             <input
                                 type="text"
@@ -146,7 +182,8 @@ const EditProductFormModal = ({ closeModal }) => {
                                     <div className="grid mr-3 place-items-center">
                                         <div className="inline-flex items-center">
                                             <label className="relative flex items-center p-0 rounded-full cursor-pointer" htmlFor="vertical-list-vue">
-                                                <input id="vertical-list-vue" type="checkbox" className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:bg-gray-900 checked:before:bg-gray-900 hover:before:opacity-0" />
+                                                <input id="vertical-list-vue" type="checkbox" className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:bg-gray-900 checked:before:bg-gray-900 hover:before:opacity-0"
+                                                    checked={isCheckedListMarket} />
                                                 <span className="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
                                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" stroke="currentColor" strokeWidth="1">
                                                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
@@ -156,7 +193,8 @@ const EditProductFormModal = ({ closeModal }) => {
                                         </div>
                                     </div>
                                     <p className="block font-sans text-base antialiased font-bold leading-relaxed text-blue-gray-900" >
-                                        Display in the FarmDirect MarketPlace</p>
+                                        List in the FarmDirect MarketPlace
+                                    </p>
                                 </label>
                             </div>
                         </nav>
