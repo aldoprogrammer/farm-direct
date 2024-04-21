@@ -3,9 +3,10 @@
 pragma solidity >=0.4.0 <0.9.0;
 
 // import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import 
 
 contract Product {
-    // constructor() ERC20 ("Product", "FmD"){}
+    
     uint32 public product_id = 0;
 
         struct productInfo{
@@ -19,9 +20,22 @@ contract Product {
         }
 
     mapping(uint32=> productInfo) public newProduct;
+    mapping(address => uint256) balances;
     // Added two functions for creating (CREATE) and getting (READ) (CRUD)
+    function pay() external payable {
+        if(msg.value < 1000){
+            // revert cancels a transaction.
+            revert();
+        }
+        balances[msg.sender] += msg.value;
+    }
+    function balanceof() external view{
+        return address(this).balance;
+    }
     function addProduct(uint256 _productInfo) public {
         string memory message = "FarmDirect";
         return (message);
     }
+
+
 }
