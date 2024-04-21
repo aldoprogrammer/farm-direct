@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TopTab from '../../../components/TopTab';
+import TopTab from '../../../components/TopTab'; // Import the TopTab component
 import BottomTab from '../../../components/BottomTab';
 import WelcomeFarmPage from '../../farm-register/WelcomeFarmPage';
 import FarmDetailsForm from '../../farm-register/FarmDetailsForm';
@@ -10,14 +10,14 @@ import FirstProduct from '../../product-page/FirstProduct';
 import EditPage from '../../product-page/EditPage';
 import ProductMarketPreview from '../../product-page/ProductMarketPreview';
 
-
 const Product = () => {
   const [activeProductTab, setActiveProductTab] = useState('FirstProduct');
+  const [activeFirstProductTab, setActiveFirstProductTab] = useState('EmptyList'); // Add activeFirstProductTab state
 
   const renderContent = () => {
     switch (activeProductTab) {
       case 'FirstProduct':
-        return <FirstProduct setActiveProductTab={setActiveProductTab} />;
+        return <FirstProduct setActiveProductTab={setActiveProductTab} setActiveFirstProductTab={setActiveFirstProductTab} activeFirstProductTab={activeFirstProductTab} />; // Pass setActiveFirstProductTab to FirstProduct
       case 'EditProductPage':
         return <EditPage setActiveProductTab={setActiveProductTab} />;
       case 'ProductMarketPreview':
@@ -27,14 +27,14 @@ const Product = () => {
     }
   };
 
-
   return (
     <div className='relative h-[100vh] overflow-y-auto'>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Farm Product - Farm Direct</title>
       </Helmet>
-      <TopTab setActiveProductTab={setActiveProductTab} activeProductTab={activeProductTab} />
+      <TopTab setActiveProductTab={setActiveProductTab} activeProductTab={activeProductTab} activeFirstProductTab={activeFirstProductTab} />
+
       {renderContent()}
       <BottomTab activeTab='Product' />
     </div>

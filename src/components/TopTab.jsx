@@ -7,7 +7,8 @@ import TopBarLogoLink from '../assets/topBarLogoLink.png';
 import TopComponent from '../assets/TopComponent.png';
 import DoneFarmerRegisBG from '../assets/done-farmer-regis-bg.png'; // Import the background image for "Done" tab
 import PencilIcon from '../assets/pencilIcon.png';
-const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab, setActiveMarketTab, activeProductTab, setActiveProductTab }) => {
+import ProduceListBg from '../assets/produce-list-bg.png';
+const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab, setActiveMarketTab, activeProductTab, setActiveProductTab, activeFirstProductTab }) => {
   const handleBack = () => {
     setActiveFarmTab('WelcomeFarmPage');
   };
@@ -97,7 +98,7 @@ const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab, setActiveMar
           </div>
           <img src={BackgroundNoImage} alt="Background" className='w-20 h-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl z-1' />
           <h5 className='text-white font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl z-10'>
-            Your Farm
+          {activeFirstProductTab === 'Listed' ? 'Your Product List' : 'Your Farm'}
           </h5>
           <img src={TopComponent} alt="Background" className='w-full h-5 absolute bottom-0 z-10' />
         </div>

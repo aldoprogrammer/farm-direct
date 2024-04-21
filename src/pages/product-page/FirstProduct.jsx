@@ -8,9 +8,9 @@ import ProductTabIcon from '../../assets/produce-empty-logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const FirstProduct = ({ setActiveProductTab }) => {
+const FirstProduct = ({ setActiveProductTab, setActiveFirstProductTab, activeFirstProductTab  }) => {
   const [showModalShoperFarmer, setShowModalShoperFarmer] = useState(false); // State to manage modal visibility
-  const [activeFirstProductTab, setActiveFirstProductTab] = useState('EmptyList');
+  
   const handleCloseEditShoperFarmer = () => {
     setShowModalShoperFarmer(!showModalShoperFarmer);
   };
