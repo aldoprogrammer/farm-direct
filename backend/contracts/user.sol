@@ -17,12 +17,14 @@ contract MyUser{
         uint16 country_code;
         string merchant_name;
         uint256 admin_id;
+        uint256 timestamp;
     }
 
     struct user {
         uint32 user_id;
         string full_name;
         uint32 country_code;
+        uint256 timestamp;
     }
 
     mapping(uint32=>user) public newUser;

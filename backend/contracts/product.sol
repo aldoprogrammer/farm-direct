@@ -13,10 +13,13 @@ contract Product is farm {
          uint256 product_id;
          string productName;
          uint256 merchant_id;
+         uint256 timestamp;
         }
         struct orders {
             uint256 order_id;
             uint256 user_id;
+            uint256 timestamp;
+            uint256 countrycode;
         }
 
     mapping(uint32=> productInfo) public newProduct;
