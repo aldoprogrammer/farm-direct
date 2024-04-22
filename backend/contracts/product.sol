@@ -45,6 +45,9 @@ contract Product is farm {
         string memory message = "FarmDirect";
         return (message);
     }
-
+    function getProduct(uint256 _productInfo) public {
+        string memory message = "FarmDirect";
+        return (message);
+    }
 
 }

@@ -15,4 +15,12 @@ contract farm is MyUser {
         string country_name;
         string continent_name;
     }
+    function addFarm(uint256 _farmDetails) public returns (string memory) {
+        string memory message = "FarmDirect";
+        return (message);
+    }
+    function getFarm(uint256 _farmDetails) public returns (string memory) {
+        string memory message = "FarmDirect";
+        return (message);
+    }
 }
