@@ -1,19 +1,126 @@
 import React, { useState } from 'react';
 import LogoLogin from '../assets/logo-login.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faEye, faEyeSlash, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import grapichLeftTop from '../assets/grap-login-above-left.png';
 import grapichRightTop from '../assets/grap-login-above-right.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [isMinLength, setIsMinLength] = useState(false);
+  const [hasCapitalLetter, setHasCapitalLetter] = useState(false);
+  const [hasNumber, setHasNumber] = useState(false);
+  const [hasSymbol, setHasSymbol] = useState(false);
+  const [passwordErrorVisible, setPasswordErrorVisible] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [confirmPasswordError, setConfirmPasswordError] = useState('');
+
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  const validatePassword = (value) => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (!value) {
+      // If the password is empty, clear all error states
+      setPasswordError('');
+      setIsMinLength(false);
+      setHasCapitalLetter(false);
+      setHasNumber(false);
+      setHasSymbol(false);
+      setPasswordErrorVisible(false);
+      return;
+    }
+
+    if (!value.match(passwordRegex)) {
+      setPasswordError('At least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character.');
+      setIsMinLength(false);
+      setHasCapitalLetter(false);
+      setHasNumber(false);
+      setHasSymbol(false);
+      setPasswordErrorVisible(true); // Show the error message
+    } else {
+      setPasswordError('');
+      setIsMinLength(true);
+      setPasswordErrorVisible(false); // Hide the error message
+    }
+
+    if (/[A-Z]/.test(value)) {
+      setHasCapitalLetter(true);
+    } else {
+      setHasCapitalLetter(false);
+    }
+
+    if (/\d/.test(value)) {
+      setHasNumber(true);
+    } else {
+      setHasNumber(false);
+    }
+
+    if (/[!@#$%^&*]/.test(value)) {
+      setHasSymbol(true);
+    } else {
+      setHasSymbol(false);
+    }
+  };  
+
+  const validateConfirmPassword = (value) => {
+    if (value !== password) {
+      setConfirmPasswordError('Passwords do not match');
+    } else {
+      setConfirmPasswordError('');
+    }
+  };
+  
+
+  const validateEmail = (value) => {
+    // You can use a regular expression or any other method to validate email
+    if (!value.includes('@')) {
+      setEmailError('Invalid email');
+    } else {
+      setEmailError('');
+    }
+  };
+
+  const handleRegister = () => {
+    // Check if there are any validation errors
+    if (emailError || passwordError || confirmPasswordError) {
+      // If there are validation errors, do not proceed
+      return;
+    }
+  
+    // Log email, password, and confirm password
+    console.log('Email:', email);
+    console.log('Password:', password);
+    console.log('Confirm Password:', confirmPassword);
+    
+    // Perform any registration logic here
+  
+    // Show success message
+    Swal.fire({
+      icon: 'success',
+      title: 'Registration Successful',
+      text: 'You have successfully registered!',
+      confirmButtonText: 'OK',
+    }).then(() => {
+      // Redirect to "/login" route after the user clicks OK
+      navigate('/login');
+    });
+  };
+  
+  
+
 
   return (
     <div className='bg-[#FFFBEB] h-[100vh] w-full flex justify-center align-center flex-col'>
@@ -28,8 +135,13 @@ const Register = () => {
             name="email"
             id="email"
             placeholder='value'
-            className='py-2 px-3 rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
+            className={`py-2 px-3 rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none ${emailError && 'border-red-500'}`}
+            onChange={(e) => {
+              validateEmail(e.target.value);
+              setEmail(e.target.value);
+            }}
           />
+          {emailError && <p className="text-red-500">{emailError}</p>}
         </div>
         <div className='my-2 flex flex-col gap-1 align-center'>
           <label htmlFor="password">Password</label>
@@ -40,6 +152,10 @@ const Register = () => {
               id="password"
               placeholder='*****'
               className='py-2 px-3 w-full rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
+              onChange={(e) => {
+                setPassword(e.target.value); // Update password state
+                validatePassword(e.target.value);
+              }}
             />
             <button
               type="button"
@@ -49,6 +165,52 @@ const Register = () => {
               <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
             </button>
           </div>
+          <div className='text-base text-red-500'>
+            {passwordErrorVisible && passwordError && (
+              <p className='flex md:flex-row 
+            lg:flex-wrap xl:flex-row flex-col 
+            md:text-[18px]
+            lg:text-[16px] lg:gap-2'>
+                {isMinLength ? (
+                  <span className='text-green-500 flex flex-row mr-1'>
+                    <FontAwesomeIcon icon={faCheckCircle} className="mr-1" /> 8 characters
+                  </span>
+                ) : (
+                  <span className='text-red-500 flex flex-row items-center mr-1'>
+                    <FontAwesomeIcon icon={faTimesCircle} className="mr-1" /> 8 characters
+                  </span>
+                )}
+                {hasCapitalLetter ? (
+                  <span className='text-green-500 flex flex-row items-center mr-1'>
+                    <FontAwesomeIcon icon={faCheckCircle} className="mr-1" /> 1 uppercase letter
+                  </span>
+                ) : (
+                  <span className='text-red-500 flex flex-row items-center mr-1'>
+                    <FontAwesomeIcon icon={faTimesCircle} className="mr-1" /> 1 uppercase letter
+                  </span>
+                )}
+                {hasNumber ? (
+                  <span className='text-green-500 flex flex-row items-center mr-1'>
+                    <FontAwesomeIcon icon={faCheckCircle} className="mr-1" /> 1 number
+                  </span>
+                ) : (
+                  <span className='text-red-500 flex flex-row items-center mr-1'>
+                    <FontAwesomeIcon icon={faTimesCircle} className="mr-1" /> 1 number
+                  </span>
+                )}
+                {hasSymbol ? (
+                  <span className='text-green-500 flex flex-row items-center mr-1'>
+                    <FontAwesomeIcon icon={faCheckCircle} className="mr-1" /> 1 symbol
+                  </span>
+                ) : (
+                  <span className='text-red-500 flex flex-row items-center mr-1'>
+                    <FontAwesomeIcon icon={faTimesCircle} className="mr-1" /> 1 symbol
+                  </span>
+                )}
+              </p>
+            )}
+          </div>
+
         </div>
         <div className='my-2 flex flex-col gap-1 align-center'>
           <label htmlFor="repeat-password">Repeat Password</label>
@@ -60,6 +222,10 @@ const Register = () => {
               placeholder='value'
               className='py-2 px-3  rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none
               w-full'
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
+                validateConfirmPassword(e.target.value);
+              }}
             />
             <button
               type="button"
@@ -69,15 +235,18 @@ const Register = () => {
               <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
             </button>
           </div>
+          {confirmPasswordError && <p className="text-red-500">{confirmPasswordError}</p>}
+
         </div>
         <div className='flex flex-col gap-5 mt-5'>
-          <button className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-white my-2 mx-auto'>
+          <button className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-white my-2 mx-auto'
+          onClick={handleRegister}>
             Register
           </button>
           <p className='font-[300] text-[#5B5B5E] text-center'>
             Already have an account?{" "}
             <Link to="/login">
-            <span className='text-[#34A853]'>Login</span>
+              <span className='text-[#34A853]'>Login</span>
             </Link>
           </p>
 
