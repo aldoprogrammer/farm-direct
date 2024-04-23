@@ -4,6 +4,8 @@ import ButtonFarmDirect from '../../components/ButtonFarmDirect';
 import FarmDetailsFormModal from '../../modal/FarmDetailsFormModal';
 import FarmAddressDetailsFormModal from '../../modal/FarmAddressDetailsFormModal';
 import UserFarmerShoperModal from '../../modal/UserFarmerShoperModal';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const UserFormDetails = ({ setActiveFarmTab }) => {
   const [showModalShoperFarmer, setShowModalShoperFarmer] = useState(false); // State to manage modal visibility
@@ -112,6 +114,8 @@ const UserFormDetails = ({ setActiveFarmTab }) => {
 for shoppers and for farmers! <br />
 You can switch account types at any time!
           </p>
+          <FontAwesomeIcon icon={faUser} size='4x' color='#B45309' />
+
 
         <ButtonFarmDirect title='I want to farm and sell produce'  />
         <ButtonFarmDirect title='I want to buy local farm produce'  />
