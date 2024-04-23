@@ -119,16 +119,48 @@ const EditPage = ({ setActiveProductTab }) => {
         <div className='flex items-center gap-2 justify-between'>
           <div className='flex flex-col gap-1'>
             <p className='font-bold'>Name:</p>
-            <p>Apple</p>
+            <p>Cabbage</p>
           </div>
           <div className='flex items-center gap-1'>
             <div className='rounded-full w-4 h-4 bg-[#FFBE18]'></div>
             <p>Not listed</p>
           </div>
         </div>
-        <div className='flex flex-col gap-1'>
-          <p className='font-bold mt-4'>Quantity:</p>
+        <div className='flex items-center gap-2 justify-between'>
+          <div className='flex flex-col gap-1'>
+            <p className='font-bold'>Date planted:</p>
+            <p>Apr 1 2024</p>
+          </div>
+        </div>
+        <div className='flex items-center gap-2 justify-between'>
+          <div className='flex flex-col gap-1'>
+            <p className='font-bold'>
+            Expected to be harvested:
+              </p>
+            <p>
+            May 24 2024
+              </p>
+          </div>
+        </div>
+        <div className='flex items-center gap-2 justify-between'>
+          <div className='flex flex-col gap-1'>
+            <p className='font-bold'>
+            Blockchain ID:              </p>
+            <p>
+            648938457392035              </p>
+          </div>
+        </div>
+        <div className='flex flex-col gap-2'>
+          <p className='font-bold'>Quantity:</p>
           23
+        </div>
+        <div className='flex items-center gap-2 justify-between'>
+          <div className='flex flex-col gap-1'>
+            <p className='font-bold'>
+            Price per LB:           </p>
+            <p>
+            $7.00             </p>
+          </div>
         </div>
         <div className='flex items-center gap-2 justify-between w-full'>
           <div className='flex flex-col gap-1'>
@@ -138,6 +170,7 @@ const EditPage = ({ setActiveProductTab }) => {
           <FarmEditButton handleClick={handleEditProduct} />
 
         </div>
+       
       </div>
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5'>
