@@ -150,7 +150,7 @@ const Register = () => {
               type={showPassword ? "text" : "password"}
               name="password"
               id="password"
-              placeholder='*****'
+              placeholder='value'
               className='py-2 px-3 w-full rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
               onChange={(e) => {
                 setPassword(e.target.value); // Update password state
