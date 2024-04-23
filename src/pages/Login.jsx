@@ -95,6 +95,7 @@ const Login = () => {
   
     // Perform login logic here
     // For demonstration purposes, simulate a successful login
+    localStorage.setItem('login', true);
     setTimeout(() => {
       // Show success message using SweetAlert
       Swal.fire({

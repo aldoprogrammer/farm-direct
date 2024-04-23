@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FarmEditButton from '../../components/FarmEditButton';
 import ButtonFarmDirect from '../../components/ButtonFarmDirect';
 import FarmDetailsFormModal from '../../modal/FarmDetailsFormModal';
@@ -31,7 +31,16 @@ const UserFormDetails = ({ setActiveFarmTab }) => {
     setActiveFarmTab('Done'); // Update the active tab 
   };
 
-  return (
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check login status from localStorage when component mounts
+    const loginStatus = localStorage.getItem('login');
+    setIsLoggedIn(loginStatus === 'true');
+  }, []);
+
+
+  return isLoggedIn ? (
     <div className='flex flex-col w-full h-[600px] px-2 py-0 items-center 
     mt-4 gap-4 overflow-auto mb-20'>
       <ButtonFarmDirect title='Save Farm Details' onClick={handleSetupFarmClick} />
@@ -88,6 +97,27 @@ const UserFormDetails = ({ setActiveFarmTab }) => {
       {showModalShoperFarmer && <UserFarmerShoperModal closeModal={handleCloseEditShoperFarmer} />}
       {showModalAddress && <FarmAddressDetailsFormModal closeModal={handleCloseEditAddress} />}
     </div>
+  ) : (
+    <div className='flex flex-col w-full h-[600px] px-2 py-0 items-center 
+    mt-4 gap-4 overflow-auto mb-20'>
+      <div className='w-full h-auto 
+      p-4 text-[#000000] justify-center items-center
+      flex flex-col gap-5'>
+         <h2 className='text-[#44403C] text-xl font-roboto-slab 
+         font-extrabold'>
+          Welcome to FarmDirect
+          </h2>
+          <p className='text-center text-[#44403C]'>
+          Sign up to access all our exciting features <br />
+for shoppers and for farmers! <br />
+You can switch account types at any time!
+          </p>
+
+        <ButtonFarmDirect title='I want to farm and sell produce'  />
+        <ButtonFarmDirect title='I want to buy local farm produce'  />
+      
+        </div>
+      </div>
   )
 }
 
