@@ -7,18 +7,20 @@ import { Helmet } from 'react-helmet';
 import FarmRegisterDone from '../../farm-register/FarmRegisterDone';
 import UserFormDetails from '../../users/UserFormDetails';
 import FirstProduct from '../../product-page/FirstProduct';
-import EditPage from '../../product-page/EditPage';
-import MarketHomePage from '../../market/MarketHomePage';
 import DetailsProductMarketHomePage from '../../market/DetailProductMarketHomePage';
+import ProductToSellAndBuy from '../../market/ProductToSellAndBuy';
+import HomeMarket from '../../market/HomeMarket';
 
 
 const Market = () => {
-  const [activeMarketTab, setActiveMarketTab] = useState('MarketHomePage');
+  const [activeMarketTab, setActiveMarketTab] = useState('HomeMarket');
 
   const renderContent = () => {
     switch (activeMarketTab) {
+      case 'HomeMarket':
+        return <HomeMarket />
       case 'MarketHomePage':
-        return <MarketHomePage setActiveMarketTab={setActiveMarketTab} />
+        return <ProductToSellAndBuy setActiveMarketTab={setActiveMarketTab} />
         case 'DetailsProductMarketHomePage':
         return <DetailsProductMarketHomePage setActiveMarketTab={activeMarketTab} />
       default:
