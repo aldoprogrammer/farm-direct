@@ -66,16 +66,20 @@ const HomeMarket = ({ setActiveMarketTab }) => {
          font-black '>
           Welcome to our Market Place!
           </h2>
-      {/* thumbnail product section */}
+      {/* product section */}
+      <div className='w-full gap-5 grid grid-cols-1
+       md:grid-cols-2 lg:grid-cols-3 mb-4'>
       {dataDummyMarket.map((item, index) => (
         <div key={index}
-          className='w-full md:h-[300px] rounded-xl 
-           text-[#000000] h-[153px] flex flex-row shadow-md p-4 gap-2'
+          className='w-full rounded-xl 
+           text-[#000000] h-[153px] flex flex-row 
+           shadow-md p-4 gap-2'
           style={{ backgroundImage: `url(${item.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
 onClick={handleSeekingProducts}
           >
           <div className='flex flex-col gap-1 w-3/5 mt-2'>
-            <h5 className='font-bold text-white md:text-3xl text-xl
+            <h5 className='font-bold text-white 
+            md:text-2xl text-xl
             cursor-pointer'
             onClick={handleDetailsMarketProduct}>
               {item.farmerName}
@@ -90,6 +94,7 @@ onClick={handleSeekingProducts}
           </div>
         </div>
       ))}
+      </div>
       {showModalPurchase && <PurchaseModal closeModal={handleCloseModalPurchase} />}
       {showModalAddress && <FarmAddressDetailsFormModal closeModal={handleCloseEditAddress} />}
     </div>
