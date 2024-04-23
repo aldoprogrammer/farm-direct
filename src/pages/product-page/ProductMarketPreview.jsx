@@ -5,7 +5,7 @@ import FarmDetailsFormModal from '../../modal/FarmDetailsFormModal';
 import FarmAddressDetailsFormModal from '../../modal/FarmAddressDetailsFormModal';
 import UserFarmerShoperModal from '../../modal/UserFarmerShoperModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowDown, faArrowUp, faBell, faDollarSign, faPlus, faTemperatureLow, faTint, faWater } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faArrowUp, faBell, faCartShopping, faDollarSign, faPlus, faTemperatureLow, faTint, faWater } from '@fortawesome/free-solid-svg-icons';
 import IconUpThumbnailLeftSide from '../../assets/icon-1-thumbanil.png'
 import ThumbnailProduct from '../../assets/thumbnail-product.png'
 import ProductBell from '../../assets/product-bell.png'
@@ -14,6 +14,7 @@ import TangkaiBunga from '../../assets/tangkai-bunga.png'
 import DaunBunga from '../../assets/daun-bunga.png'
 import EditProductFormModal from '../../modal/EditProductFormModal';
 import ReactSpeedometer from 'react-d3-speedometer';
+import ExploreMarket from '../../assets/explore-market.png';
 const ProductMarketPreview = ({ setActiveProductTab }) => {
   const [showModalEditProduct, setShowModalEditProduct] = useState(false); // State to manage modal visibility
   const [showModalAddress, setShowModalAddress] = useState(false); // State to manage modal visibility
@@ -40,50 +41,50 @@ const ProductMarketPreview = ({ setActiveProductTab }) => {
     setActiveProductTab('EditPage'); // Update the active tab 
   };
 
-
+ // Dummy JSON data for vegetable tabs
+ const vegetablesTabData = [
+  { id: 1, name: 'Carrot' },
+  { id: 2, name: 'Tomato' },
+  { id: 3, name: 'Broccoli' },
+  { id: 4, name: 'Spinach' },
+  { id: 5, name: 'Cucumber' },
+  { id: 6, name: 'Bell Pepper' },
+  { id: 7, name: 'Onion' },
+  { id: 8, name: 'Lettuce' }
+];
     // State to track the active tab
-    const [activeSubHeadTab, setActiveSubHeadTab] = useState('Cabbage');
+    const [activeSubHeadTab, setActiveSubHeadTab] = useState(vegetablesTabData[0].name);
 
     // Function to handle tab click
     const handleTabClick = (tabName) => {
       setActiveSubHeadTab(tabName);
     };
 
+    
+    
+
+
   return (
     <div className='flex flex-col w-full h-[600px] px-2 py-0 items-center 
     mt-4 gap-4 overflow-auto mb-20'>
-      <ButtonFarmDirect title='Save Farm Details' onClick={handleSetupFarmClick} />
       {/* sub tab header */}
-      <div className='w-full h-12 grid grid-cols-3'>
-      {/* Cabbage Tab */}
-      <div 
-        className={`w-full border-b-[#65A30D] border-2 flex items-center justify-center p-2 border-[#FFFBEB] cursor-pointer 
-        ${activeSubHeadTab !== 'Cabbage' && 'border-b-0'}`}
-        onClick={() => handleTabClick('Cabbage')}
-      >
-        <p className='font-normal text-base'>
-          Cabbage
-        </p>
+      <div className='flex flex-row w-full'>
+      <div className='w-full h-12 flex overflow-x-auto gap-2'>
+      {/* Map over the vegetable tabs array to render each tab */}
+      
+      {vegetablesTabData.map((tab) => (
+        <div 
+          key={tab.id}
+          className={`w-[290px] border-b-[#65A30D] border-2 flex items-center justify-center p-2 border-[#FFFBEB] cursor-pointer ${activeSubHeadTab !== tab.name && 'border-b-0'}`}
+          onClick={() => handleTabClick(tab.name)}
+        >
+          <p className='font-normal text-base text-center'>
+            {tab.name}
+          </p>
+        </div>
+      ))}
       </div>
-      {/* Cane Sugar Tab */}
-      <div 
-        className={`w-full border-b-[#65A30D] border-2 flex items-center justify-center p-2 border-[#FFFBEB] cursor-pointer ${activeSubHeadTab !== 'Cane Sugar' && 'border-b-0'}`}
-        onClick={() => handleTabClick('Cane Sugar')}
-      >
-        <p className='font-normal text-base'>
-          Cane Sugar
-        </p>
       </div>
-      {/* Carrots Tab */}
-      <div 
-        className={`w-full border-b-[#65A30D] border-2 flex items-center justify-center p-2 border-[#FFFBEB] cursor-pointer ${activeSubHeadTab !== 'Carrots' && 'border-b-0'}`}
-        onClick={() => handleTabClick('Carrots')}
-      >
-        <p className='font-normal text-base'>
-          Carrots
-        </p>
-      </div>
-    </div>
       {/* thubmnail product section */}
       <div className='w-full h-[300px] rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-row shadow-md'>
@@ -181,13 +182,13 @@ const ProductMarketPreview = ({ setActiveProductTab }) => {
         <div className='grid grid-cols-3 items-left 
         gap-2 justify-between w-full'>
           <div className='flex flex-col gap-1 text-center'>
-            <h6 className='text-[#44403C] text-xl font-extrabold'>Nitrogen
+            <h6 className='text-[#44403C] text-[16px]  font-extrabold'>Nitrogen
             <br />N (PPM)</h6>
             <p className='text-3xl text-[#65A30D] font-bold'>30</p>
             <p className='text-sm text-[#44403C]'>20-50 ppm</p>
           </div>
           <div className='flex flex-col gap-1 text-center'>
-            <h6 className='text-[#44403C] text-xl font-extrabold'>
+            <h6 className='text-[#44403C] text-[16px]  font-extrabold'>
             Phosphorus
             <br />P (PPM)</h6>
             <div className='flex items-center justify-center'>
@@ -198,7 +199,7 @@ const ProductMarketPreview = ({ setActiveProductTab }) => {
             <p className='text-sm text-[#44403C]'>10-30 ppm</p>
           </div>
           <div className='flex flex-col gap-1 text-center'>
-            <h6 className='text-[#44403C] text-xl font-extrabold'>Potassium
+            <h6 className='text-[#44403C] text-[16px] font-extrabold'>Potassium
             <br />K (PPM)</h6>
             <div className='flex items-center justify-center'>
             <FontAwesomeIcon icon={faArrowUp} className=' text-2xl text-[#EA7806]' />
@@ -208,7 +209,13 @@ const ProductMarketPreview = ({ setActiveProductTab }) => {
           </div>
         </div>
         <div className='flex flex-col justify-center items-center'>
-            <ButtonFarmDirect title='Button Text' />
+        <button
+   onClick={handleSetupFarmClick} // Call the handleSetupFarmClick function on button click
+   className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-[#FFFFFF] my-2 mx-auto
+   flex flex-row items-center gap-3 mt-6'>
+            <FontAwesomeIcon icon={faCartShopping} className='text-white w-4 h-4' />
+   <p className='font-bold'>Shop For Fertilizer</p>
+ </button>
           </div>
       </div>
       {/* two grid above market predict */}
@@ -229,18 +236,21 @@ Matter SOM</p>
         </div>
       </div>
 
-      <div className='w-full min-h-[120px] h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
+      <div className='w-full h-auto  
+      rounded-xl bg-[#ffffff] text-[#000000]
   flex flex-col shadow-md gap-5 mb-3'>
-        <div className='flex flex-col gap-2 justify-between'>
+        <div className='flex flex-col p-4 gap-2 justify-between'>
           <div className='flex items-center gap-1'>
             <FontAwesomeIcon icon={faDollarSign} className='text-[#65A30D] text-lg' />
             <p className='font-bold'>Market Prediction</p>
           </div>
           {/* market prediction */}
-          <div className='flex flex-col items-center justify-center h-auto mt-2'>
-            <p className='font-bold'>Dummy data for now</p>
-          </div>
+          
         </div>
+        <div className='flex flex-col items-center justify-center h-auto mt-2'>
+  <img src={ExploreMarket} alt="" style={{ width: '100%' }} />
+</div>
+
       </div>
 
       {showModalEditProduct && <EditProductFormModal closeModal={handleCloseEditProduct} />}
