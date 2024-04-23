@@ -36,7 +36,7 @@ const Market = () => {
       </Helmet>
       <TopTab setActiveMarketTab={setActiveMarketTab} activeMarketTab={activeMarketTab} />
       {renderContent()}
-      <BottomTab activeTab='Market' />
+      <BottomTab activeTab='Market' setActiveMarketTab={setActiveMarketTab} />
     </div>
   );
 };

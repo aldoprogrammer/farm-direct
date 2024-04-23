@@ -6,6 +6,7 @@ import FarmAddressDetailsFormModal from '../../modal/FarmAddressDetailsFormModal
 import UserFarmerShoperModal from '../../modal/UserFarmerShoperModal';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 const UserFormDetails = ({ setActiveFarmTab }) => {
   const [showModalShoperFarmer, setShowModalShoperFarmer] = useState(false); // State to manage modal visibility
@@ -49,9 +50,13 @@ const UserFormDetails = ({ setActiveFarmTab }) => {
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5'>
         <div className='flex gap-2 justify-between'>
+        <div className='flex flex-col'>
           <p className='font-bold'>
-            I'm a Farmer
-            </p>
+          Profile type:
+          </p>
+          <p>Farmer</p>
+
+          </div>
           <FarmEditButton handleClick={handleEditFarmerShoper} />
         </div>
       </div>
@@ -59,10 +64,10 @@ const UserFormDetails = ({ setActiveFarmTab }) => {
       flex flex-col shadow-md gap-5'>
         <div className='flex items-left gap-2 justify-between w-full'>
           <div className='flex flex-col'>
-          <p className='font-bold'>Your Name</p>
-          <p>Aldo LS</p>
+            <p className='font-bold'>Your Name</p>
+            <p>Aldo LS</p>
           </div>
-          <FarmEditButton  />
+          <FarmEditButton />
         </div>
       </div>
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
@@ -88,7 +93,7 @@ const UserFormDetails = ({ setActiveFarmTab }) => {
         </div>
       </div>
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
-      flex flex-col shadow-md gap-5'>
+      flex flex-col shadow-md gap-5 mb-6'>
         <div className='flex items-left gap-2 justify-between w-full'>
           <div className='flex flex-col w-4/5'>
             <p className='font-bold'>Change Password</p>
@@ -105,23 +110,26 @@ const UserFormDetails = ({ setActiveFarmTab }) => {
       <div className='w-full h-auto 
       p-4 text-[#000000] justify-center items-center
       flex flex-col gap-5'>
-         <h2 className='text-[#44403C] text-xl font-roboto-slab 
+        <h2 className='text-[#44403C] text-xl font-roboto-slab 
          font-extrabold'>
           Welcome to FarmDirect
-          </h2>
-          <p className='text-center text-[#44403C]'>
+        </h2>
+        <p className='text-center text-[#44403C]'>
           Sign up to access all our exciting features <br />
-for shoppers and for farmers! <br />
-You can switch account types at any time!
-          </p>
-          <FontAwesomeIcon icon={faUser} size='4x' color='#B45309' />
+          for shoppers and for farmers! <br />
+          You can switch account types at any time!
+        </p>
+        <FontAwesomeIcon icon={faUser} size='4x' color='#B45309' />
 
-
-        <ButtonFarmDirect title='I want to farm and sell produce'  />
-        <ButtonFarmDirect title='I want to buy local farm produce'  />
-      
-        </div>
+        <Link to='/register'>
+          <ButtonFarmDirect title='I want to farm and sell produce' />
+        </Link>
+        
+        <Link to='/register'>
+          <ButtonFarmDirect title='I want to buy local farm produce' />
+        </Link>
       </div>
+    </div>
   )
 }
 

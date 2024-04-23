@@ -105,7 +105,7 @@ const Login = () => {
         timer: 2000, // Automatically close after 2 seconds
       }).then(() => {
         // Redirect to "/farm" route after success message
-        navigate('/farm');
+        navigate('/user-profile');
       });
     }, 1000); // Simulating a delay for login logic, replace this with actual login logic
   };

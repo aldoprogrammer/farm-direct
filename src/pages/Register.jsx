@@ -25,7 +25,7 @@ const Register = () => {
   const [passwordErrorVisible, setPasswordErrorVisible] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState('');
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
-  const { web3, account, connectToMetaMask, connected, connecting } = useAppContext();
+  // const { web3, account, connectToMetaMask, connected, connecting } = useAppContext();
 
   const navigate = useNavigate();
 

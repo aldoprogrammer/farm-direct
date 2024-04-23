@@ -34,9 +34,8 @@ const Product = () => {
         <title>Farm Product - Farm Direct</title>
       </Helmet>
       <TopTab setActiveProductTab={setActiveProductTab} activeProductTab={activeProductTab} activeFirstProductTab={activeFirstProductTab} />
-
       {renderContent()}
-      <BottomTab activeTab='Product' />
+      <BottomTab activeTab='Product' setActiveProductTab={setActiveProductTab} />
     </div>
   );
 };

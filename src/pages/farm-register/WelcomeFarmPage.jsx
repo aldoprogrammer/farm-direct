@@ -27,9 +27,11 @@ const WelcomeFarmPage = ({ setActiveFarmTab }) => {
     }
   ];
 
+
   const handleSetupFarmClick = () => {
-    navigate('/product')
+    setActiveFarmTab('FarmDetails'); // Update the active tab 
   };
+  
 
   const [welcomeTabPage, setWelcomeTabPage] = useState('welcome');
   const handleWelcomeTabClick = () => {
@@ -70,7 +72,7 @@ const WelcomeFarmPage = ({ setActiveFarmTab }) => {
    </div>
  ))}
  <button
-   onClick={handleSetupFarmClick} // Call the handleSetupFarmClick function on button click
+   onClick={handleSetupFarmClick}
    className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-[#FFFFFF] my-2 mx-auto
    flex flex-row items-center gap-3'>
    <img src={PencilIcon} alt="" className='w-4 h-4' />

@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import MarketTabIcon from '../assets/marketTabIcon.png';
 import AccountTabIcon from '../assets/accountTabIcon.png';
 import { faSeedling } from '@fortawesome/free-solid-svg-icons';
+import ProductTabIcon from '../assets/productTabIcon.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const BottomTab = ({ activeTab }) => {
+const BottomTab = ({ activeTab, setActiveMarketTab  }) => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
