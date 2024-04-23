@@ -7,7 +7,10 @@ import grapichLeftTop from '../assets/grap-login-above-left.png';
 import grapichRightTop from '../assets/grap-login-above-right.png';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-
+import { ethers } from "ethers";
+import Web3 from 'web3';
+// import { useAppContext } from '../contexts/AppContext';
+import { Abi } from './Abi';
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -22,6 +25,7 @@ const Register = () => {
   const [passwordErrorVisible, setPasswordErrorVisible] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState('');
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
+  const { web3, account, connectToMetaMask, connected, connecting } = useAppContext();
 
   const navigate = useNavigate();
 
@@ -106,6 +110,7 @@ const Register = () => {
     console.log('Confirm Password:', confirmPassword);
     
     // Perform any registration logic here
+
   
     // Show success message
     Swal.fire({
@@ -118,6 +123,10 @@ const Register = () => {
       navigate('/login');
     });
   };
+
+
+
+  
   
   
 
