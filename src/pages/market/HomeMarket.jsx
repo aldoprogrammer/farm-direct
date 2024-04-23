@@ -17,8 +17,8 @@ const HomeMarket = ({ setActiveMarketTab }) => {
   const [showModalAddress, setShowModalAddress] = useState(false);
 
 
-  const handlePurchaseModal = () => {
-    setShowModalPurchase(true);
+  const handleSeekingProducts = () => {
+    setActiveMarketTab('MarketHomePage');
   };
 
   const handleCloseModalPurchase = () => {
@@ -40,18 +40,23 @@ const HomeMarket = ({ setActiveMarketTab }) => {
   const dataDummyMarket = [
     {
       image: ThumbnailProduct,
+      farmerName: "Silver Bells Farm"
     },
     {
       image: ThumbnailProduct2,
+      farmerName: "Jane Smith"
     },
     {
       image: ThumbnailProduct,
+      farmerName: "Alice Johnson"
     },
     {
       image: ThumbnailProduct2,
+      farmerName: "Bob Williams"
     },
     {
       image: ThumbnailProduct,
+      farmerName: "Emily Brown"
     }
   ];
 
@@ -67,17 +72,17 @@ const HomeMarket = ({ setActiveMarketTab }) => {
           className='w-full md:h-[300px] rounded-xl 
            text-[#000000] h-[153px] flex flex-row shadow-md p-4 gap-2'
           style={{ backgroundImage: `url(${item.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-
+onClick={handleSeekingProducts}
           >
           <div className='flex flex-col gap-1 w-3/5 mt-2'>
             <h5 className='font-bold text-white md:text-3xl text-xl
             cursor-pointer'
             onClick={handleDetailsMarketProduct}>
-              Farm Name
+              {item.farmerName}
             </h5>
             <Rating value={3} readonly />
             <button className='w-fit bg-[#65A30D] py-[7px] px-4 rounded-md text-[#FFFFFF] my-2 flex flex-row items-center gap-3'
-                         onClick={handlePurchaseModal}
+                         
             >
               {/* <FontAwesomeIcon icon={faCartShopping} className='text-white w-4 h-4' /> */}
               <p>Visit</p>
