@@ -191,7 +191,7 @@ const EditPage = ({ setActiveProductTab }) => {
         </div>
       </div>
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
-      flex flex-col shadow-md gap-5'>
+      flex flex-col shadow-md gap-5 mb-4'>
         <div className='flex gap-2 justify-between'>
           <p className='font-bold'>
             Product History
