@@ -64,7 +64,7 @@ const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab, setActiveMar
       )}
 
       {activeFarmTab == 'Done' && (
-        <div className='h-44 w-full bg-[#78716C] relative justify-center items-center' style={{ backgroundImage: `url(${ProduceListBg})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', filter: 'none' }}>
+        <div className='h-44 md:h-[27rem] w-full bg-[#78716C] relative justify-center items-center' style={{ backgroundImage: `url(${ProduceListBg})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', filter: 'none' }}>
           {/* Render the logo link only if the active tab is not 'FarmDetails' */}
           {activeFarmTab !== 'FarmDetails' && (
             <Link to="/">
@@ -86,7 +86,7 @@ const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab, setActiveMar
         </div>
       )}
       {activeFarmTab !== 'Done' && (
-        <div className='h-44 w-full bg-[#78716C] relative justify-center items-center' style={{
+        <div className='h-44 md:h-[27rem] w-full bg-[#78716C] relative justify-center items-center' style={{
           backgroundImage: `url(${KubisImage})`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
