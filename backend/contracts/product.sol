@@ -41,9 +41,9 @@ contract Product is farm {
     function sendingEther(address payable farmer) external{
        farmer.transfer(1 ether); 
     }
-    function addProduct(uint256 _productInfo) public {
-        string memory message = "FarmDirect";
-        return (message);
+    function addProduct(uint256 _product_id, string memory _productName, uint256 _merchant_id, uint256 _timestamp) public {
+        
+        return "New Product";
     }
     function getProduct(uint256 _productInfo) public {
         string memory message = "FarmDirect";
