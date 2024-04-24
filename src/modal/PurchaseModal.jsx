@@ -4,10 +4,13 @@ import ButtonFarmDirect from '../components/ButtonFarmDirect';
 import ButtonCancel from '../components/ButtonCancel';
 import ThumbnailProduct from '../assets/product1.png';
 import { Option, Select, Checkbox } from '@material-tailwind/react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import Swal from 'sweetalert2';
 
 const PurchaseModal = ({ closeModal }) => {
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('cardOnFile'); // State to store selected payment method
     const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState('delivery'); // State to store selected delivery method
+    const navigate = useNavigate(); // Initialize useNavigate
 
     // Function to handle change in payment method selection
     const handlePaymentMethodChange = (method) => {
@@ -17,6 +20,25 @@ const PurchaseModal = ({ closeModal }) => {
     // Function to handle change in delivery method selection
     const handleDeliveryMethodChange = (method) => {
         setSelectedDeliveryMethod(method);
+    };
+
+    const handleRegisterClick = () => {
+        // Check if user is not logged in
+        if (localStorage.getItem('login') !== 'true') {
+            // Show SweetAlert message
+            Swal.fire({
+                icon: 'info',
+                title: 'You need to register or log in first!',
+                text: 'To proceed with your purchase.',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3085d6',
+            });
+            navigate('/login');
+        } else {
+            // Perform other actions if needed
+            // For example, show a message that the user is already logged in
+            console.log("User is already logged in.");
+        }
     };
 
     return (
@@ -128,7 +150,8 @@ const PurchaseModal = ({ closeModal }) => {
                 <div className='absolute w-[96%] bottom-5 p-2'>
                     <div className='flex items-center justify-between flex-row'>
                         <ButtonCancel onClick={closeModal} />
-                        <ButtonFarmDirect title='Purchase'/>
+                        <ButtonFarmDirect title='Purchase'
+                        onClick={handleRegisterClick}/>
                     </div>
                 </div>
             </div>
