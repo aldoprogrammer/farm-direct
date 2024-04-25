@@ -13,11 +13,20 @@ import WhiteEditButton from '../../components/WhiteEditButton';
 import TangkaiBunga from '../../assets/tangkai-bunga.png'
 import DaunBunga from '../../assets/daun-bunga.png'
 import EditProductFormModal from '../../modal/EditProductFormModal';
+import AddIOTtoProduct from '../../modal/AddIOTtoProduct';
 const EditPage = ({ setActiveProductTab }) => {
   const [showModalEditProduct, setShowModalEditProduct] = useState(false); // State to manage modal visibility
   const [showModalAddress, setShowModalAddress] = useState(false); // State to manage modal visibility
+  const [showModalIOTDevices, setShowModalIOTDevices] = useState(false); // State to manage modal visibility
 
+  const handleModalIOTDevices = () => {
+    setShowModalIOTDevices(true);
+  };
 
+  const handleCloseModalIOTDevices = () => {
+    setShowModalIOTDevices(!showModalIOTDevices);
+  };
+  
   const handleEditProduct = () => {
     setShowModalEditProduct(true); // Show the modal when the button is clicked
   };
@@ -187,7 +196,7 @@ const EditPage = ({ setActiveProductTab }) => {
         <div className='flex flex-col items-left gap-2 justify-between w-full'>
           <p className='font-bold'>IoT Devices:</p>
           <div className='flex flex-col justify-center items-center'>
-            <ButtonFarmDirect title='Discover IoT Devices' />
+            <ButtonFarmDirect title='Discover IoT Devices' onClick={handleModalIOTDevices} />
           </div>
         </div>
       </div>
@@ -200,7 +209,7 @@ const EditPage = ({ setActiveProductTab }) => {
           <FarmEditButton />
         </div>
       </div>
-
+    {showModalIOTDevices && <AddIOTtoProduct closeModal={handleCloseModalIOTDevices} />}
       {showModalEditProduct && <EditProductFormModal closeModal={handleCloseEditProduct} />}
     </div>
   )
