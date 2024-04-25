@@ -46,7 +46,7 @@ const UserFormDetails = ({ setActiveFarmTab }) => {
   return isLoggedIn ? (
     <div className='flex flex-col w-full h-[600px] px-2 py-0 items-center 
     mt-4 gap-4 overflow-auto mb-20'>
-      <ButtonFarmDirect title='Save Farm Details' onClick={handleSetupFarmClick} />
+      {/* <ButtonFarmDirect title='Save Farm Details' onClick={handleSetupFarmClick} /> */}
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5'>
         <div className='flex gap-2 justify-between'>

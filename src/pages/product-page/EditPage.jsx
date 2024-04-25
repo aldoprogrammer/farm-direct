@@ -181,6 +181,7 @@ const EditPage = ({ setActiveProductTab }) => {
           <FarmEditButton />
         </div>
       </div>
+      {/* IOT Devices */}
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5'>
         <div className='flex flex-col items-left gap-2 justify-between w-full'>
