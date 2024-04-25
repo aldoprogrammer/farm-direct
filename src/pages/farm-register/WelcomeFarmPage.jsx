@@ -30,8 +30,8 @@ const WelcomeFarmPage = ({ setActiveFarmTab }) => {
 
   const handleSetupFarmClick = () => {
     setActiveFarmTab('FarmDetails'); // Update the active tab 
+    setWelcomeTabPage('almostDone');
   };
-  
 
   const [welcomeTabPage, setWelcomeTabPage] = useState('welcome');
   const handleWelcomeTabClick = () => {
@@ -47,72 +47,72 @@ const WelcomeFarmPage = ({ setActiveFarmTab }) => {
     mt-4 gap-4 overflow-auto mb-20'>
       {/* welcome to farm tab */}
       {welcomeTabPage === 'welcome' && (
- <>
- <button
-        onClick={handleWelcomeTabClick} // Call the handleSetupFarmClick function on button click
-        className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-[#FFFFFF] my-2 mx-auto
+        <>
+          {/* <button
+            onClick={handleWelcomeTabClick} // Call the handleSetupFarmClick function on button click
+            className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-[#FFFFFF] my-2 mx-auto
         flex flex-row items-center gap-3'>
-        <p>
-          Change The Page
-        </p>
-      </button>
- <img src={FarmDirectLogo} alt="FarmDirectLogo" className='w-20 h-20' />
- <h2 className='text-2xl text-[#44403C] font-extrabold'>Welcome to FarmDirect!</h2>
- <p className='text-center text-base text-[#44403C] font-[600]'>
-   Jumpstart your farming journey
-   <br />with just a few clicks
- </p>
- {/* Map over the JSON data to render the content */}
- {welcomeData.map((item, index) => (
-   <div key={index} className='flex justify-between 
+            <p>
+              Change The Page
+            </p>
+          </button> */}
+          <img src={FarmDirectLogo} alt="FarmDirectLogo" className='w-20 h-20' />
+          <h2 className='text-2xl text-[#44403C] font-extrabold'>Welcome to FarmDirect!</h2>
+          <p className='text-center text-base text-[#44403C] font-[600]'>
+            Jumpstart your farming journey
+            <br />with just a few clicks
+          </p>
+          {/* Map over the JSON data to render the content */}
+          {welcomeData.map((item, index) => (
+            <div key={index} className='flex justify-between 
    items-center gap-y-4 gap-x-3 w-4/5 mx-0 
    md:mx-auto md:justify-normal md:w-2/5'>
-     <img src={item.icon} alt={`Icon ${index + 1}`} className='w-8 h-10' />
-     <p className='text-[#44403C] text-left text-sm'>{item.text}</p>
-   </div>
- ))}
- <button
-   onClick={handleSetupFarmClick}
-   className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-[#FFFFFF] my-2 mx-auto
+              <img src={item.icon} alt={`Icon ${index + 1}`} className='w-8 h-10' />
+              <p className='text-[#44403C] text-left text-sm'>{item.text}</p>
+            </div>
+          ))}
+          <button
+            onClick={handleSetupFarmClick}
+            className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-[#FFFFFF] my-2 mx-auto
    flex flex-row items-center gap-3'>
-   <img src={PencilIcon} alt="" className='w-4 h-4' />
-   <p>Setup Your Farm</p>
- </button>
- </>
+            <img src={PencilIcon} alt="" className='w-4 h-4' />
+            <p>Setup Your Farm</p>
+          </button>
+        </>
       )}
-     
+
       {/* you are almost there tab */}
       {welcomeTabPage === 'almostDone' && (
         <>
-         <button
-        onClick={handleWelcomeAlmostTabClick} // Call the handleSetupFarmClick function on button click
-        className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-[#FFFFFF] my-2 mx-auto
+          <button
+            onClick={handleWelcomeAlmostTabClick} // Call the handleSetupFarmClick function on button click
+            className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-[#FFFFFF] my-2 mx-auto
         flex flex-row items-center gap-3'>
-        <p>
-          Change The Page
-        </p>
-      </button>
-        <h2 className='text-2xl text-[#44403C] font-extrabold'>
-        You are almost there...
+            <p>
+              Change The Page
+            </p>
+          </button>
+          <h2 className='text-2xl text-[#44403C] font-extrabold'>
+            You are almost there...
           </h2>
-          
+
           <p className='text-center text-base
            text-[#44403C] font-[500]'>
-          Set up your first Dashboard!
-        </p>
-        <img src={AlmostThereIcon} alt="FarmDirectLogo" className='w-20 h-20' />
-        <button
-          onClick={handleSetupFarmClick} // Call the handleSetupFarmClick function on button click
-          className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-[#FFFFFF] my-2 mx-auto
-          flex flex-row items-center gap-3'>
-          <FontAwesomeIcon icon={faPlus} /> {/* Specify the plus icon */}
-          <p>
-          Add Your First Product
+            Set up your first Dashboard!
           </p>
-        </button>
+          <img src={AlmostThereIcon} alt="FarmDirectLogo" className='w-20 h-20' />
+          <button
+            onClick={handleSetupFarmClick} // Call the handleSetupFarmClick function on button click
+            className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-[#FFFFFF] my-2 mx-auto
+          flex flex-row items-center gap-3'>
+            <FontAwesomeIcon icon={faPlus} /> {/* Specify the plus icon */}
+            <p>
+              Add Your First Product
+            </p>
+          </button>
         </>
       )}
-      
+
     </div>
 
   );
