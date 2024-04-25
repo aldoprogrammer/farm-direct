@@ -56,7 +56,6 @@ const EditPage = ({ setActiveProductTab }) => {
   return (
     <div className='flex flex-col w-full h-[600px] px-2 py-0 items-center 
     mt-4 gap-4 overflow-auto mb-20'>
-      <ButtonFarmDirect title='Save Farm Details' onClick={handleSetupFarmClick} />
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       grid grid-cols-3 shadow-md gap-5'>
         <div className='p-2 border-[#F73B3B] border-2

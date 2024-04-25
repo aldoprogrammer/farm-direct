@@ -50,7 +50,8 @@ const DetailsProductMarketHomePage = ({ setActiveMarketTab }) => {
         text-[#000000] flex flex-col 
         shadow-md p-4 gap-2'>
         <div className='w-2/5 flex mx-auto'>
-          <img src={ThumbnailProduct} alt="" className='w-full h-full' />
+          <img src={ThumbnailProduct} alt="" className='w-full h-full
+          rounded-md' />
         </div>
         <div className='flex flex-col w-full mt-2 gap-4'>
           {/* title */}
