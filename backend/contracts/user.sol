@@ -25,6 +25,10 @@ contract MyUser{
         uint256 timestamp;
     }
 
+    constructor(){
+        
+    }
+
     mapping(uint256 =>UserDetails) public users;
 
     function addPerson(uint256 _user_Id, string memory _full_name, uint32 _country_code, uint256 timestamp) public returns (string memory) {

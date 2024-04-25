@@ -4,7 +4,7 @@ pragma solidity >=0.4.0 <0.9.0;
 
 import './farm.sol';
 
-contract Product is farm {
+contract Product is Farm {
     
     uint32 public product_id = 0;
 
@@ -47,9 +47,9 @@ contract Product is farm {
         return "New Product";
     }
 
-    function getProduct(uint256 _productInfo) public view returns (string memory) {
-        string memory message = "FarmDirect";
-        return (message);
-    }
+    // function getProduct(uint256 _productInfo) public view returns (string memory) {
+    //     string memory message = "FarmDirect";
+    //     return (message);
+    // }
 
 }
