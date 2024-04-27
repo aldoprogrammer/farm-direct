@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity >=0.4.0 <0.9.0;
 
-import './user.sol';
+import './MyUser.sol';
 // Inheritance
 contract Farm is MyUser {
     struct FarmDetails{
@@ -40,3 +40,4 @@ contract Farm is MyUser {
             );
     }
 }
+// 0xf08dee2d32b97aad5f6354e645ff53ccb5b3a324

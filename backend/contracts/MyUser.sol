@@ -3,7 +3,7 @@ pragma solidity >=0.5.0 <0.9.0;
 
 
 
-contract MyUser{
+contract MyUser {
 
     
     // uint32 public user_id = 0;
@@ -25,9 +25,7 @@ contract MyUser{
         uint256 timestamp;
     }
 
-    constructor(){
-        
-    }
+    
 
     mapping(uint256 =>UserDetails) public users;
 
