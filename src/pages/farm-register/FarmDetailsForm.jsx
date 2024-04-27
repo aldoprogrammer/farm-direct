@@ -7,6 +7,11 @@ import { Link } from 'react-router-dom';
 import RegisterFarmModal from '../../modal/RegisterFarmModal';
 
 const FarmDetailsForm = ({ setActiveFarmTab }) => {
+  const [state, setState] = useState({
+    provider:null,
+    signer: null,
+    contract:null
+  });
   const [showModalFarmBussiness, setShowModalFarmBussiness] = useState(false); // State to manage modal visibility
   const [showModalRegisterFarmBlockchain, setShowModalRegisterFarmBlockchain] = useState(false); // State to manage modal visibility
   const [fillUserProfile, setFillUserProfile] = useState('not done');
@@ -14,11 +19,23 @@ const FarmDetailsForm = ({ setActiveFarmTab }) => {
 
   useEffect(() => {
     // Check if the value in localStorage is 'done'
-    const storedFillUserProfile = localStorage.getItem('fillUserProfile');
-    if (storedFillUserProfile) {
-      setFillUserProfile(storedFillUserProfile);
+    // const storedFillUserProfile = localStorage.getItem('fillUserProfile');
+    // if (storedFillUserProfile) {
+      // setFillUserProfile(storedFillUserProfile);
+      const fetchContract = async()=> {
+        const contractAddress="";
+        const contractABI="";
+  
+        // Metamask configuration
+        const {ethereum} = window;
+  
+        const account = await ethereum.request({
+        method:"eth_requestAccounts"
+      })
+      // const provider
     }
-  }, []);
+      fetchContract();
+  },[]);
 
   const handleRegisterFarmBlockchain = () => {
     setShowModalRegisterFarmBlockchain(true); // Show the modal when the button is clicked

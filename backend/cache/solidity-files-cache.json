@@ -1,0 +1,117 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/home/stephen/project/FarmDirectContract2024/backend/contracts/product.sol": {
+      "lastModificationDate": 1714031323803,
+      "contentHash": "b6864110dc6c357c60ab4dad3fe567cb",
+      "sourceName": "contracts/product.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./farm.sol"
+      ],
+      "versionPragmas": [
+        ">=0.4.0 <0.9.0"
+      ],
+      "artifacts": [
+        "Product"
+      ]
+    },
+    "/home/stephen/project/FarmDirectContract2024/backend/contracts/farm.sol": {
+      "lastModificationDate": 1714079588116,
+      "contentHash": "9ed6ce09b1f6ccde4217a1015a7747b7",
+      "sourceName": "contracts/farm.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./MyUser.sol"
+      ],
+      "versionPragmas": [
+        ">=0.4.0 <0.9.0"
+      ],
+      "artifacts": [
+        "Farm"
+      ]
+    },
+    "/home/stephen/project/FarmDirectContract2024/backend/contracts/MyUser.sol": {
+      "lastModificationDate": 1714079655266,
+      "contentHash": "a4623a2eb957353333fcf78717f1e919",
+      "sourceName": "contracts/MyUser.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0 <0.9.0"
+      ],
+      "artifacts": [
+        "MyUser"
+      ]
+    }
+  }
+}

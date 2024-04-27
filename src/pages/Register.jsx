@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 import { ethers } from "ethers";
 import Web3 from 'web3';
 // import { useAppContext } from '../contexts/AppContext';
-import { Abi } from './Abi';
+// import { Abi } from './Abi';
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
