@@ -16,10 +16,21 @@ import EditProductFormModal from '../../modal/EditProductFormModal';
 import ReactSpeedometer from 'react-d3-speedometer';
 import ExploreMarket from '../../assets/explore-market.png';
 import { useNavigate } from 'react-router-dom';
+import AddIOTtoProduct from '../../modal/AddIOTtoProduct';
 const VegetablesIOT = ({ setActiveFarmTab }) => {
   const [showModalEditProduct, setShowModalEditProduct] = useState(false); // State to manage modal visibility
   const [showModalAddress, setShowModalAddress] = useState(false); // State to manage modal visibility
   const navigate = useNavigate();
+  
+  const [showModalIOTDevices, setShowModalIOTDevices] = useState(false); // State to manage modal visibility
+
+  const handleModalIOTDevices = () => {
+    setShowModalIOTDevices(true);
+  };
+
+  const handleCloseModalIOTDevices = () => {
+    setShowModalIOTDevices(!showModalIOTDevices);
+  };
 
   const handleEditProduct = () => {
     setShowModalEditProduct(true); // Show the modal when the button is clicked
@@ -216,13 +227,21 @@ const VegetablesIOT = ({ setActiveFarmTab }) => {
             <p className='text-sm text-[#44403C]'>10-40 ppm</p>
           </div>
         </div>
-        <div className='flex flex-col justify-center items-center'>
+        <div className='grid grid-cols-2 justify-center items-center'>
           <button
             onClick={handleSetupFarmClick} // Call the handleSetupFarmClick function on button click
             className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-[#FFFFFF] my-2 mx-auto
               flex flex-row items-center gap-3 mt-6'>
             <FontAwesomeIcon icon={faCartShopping} className='text-white w-4 h-4' />
-            <p className='font-bold'>Shop For Fertilizer</p>
+            <p className='font-bold'>Fertilizer</p>
+          </button>
+          <button
+            onClick={handleModalIOTDevices} // Call the handleSetupFarmClick function on button click
+            className='w-fit bg-[#65A30D] py-[1rem] px-8 rounded-md text-[#FFFFFF] my-2 mx-auto
+              flex flex-row items-center gap-3 mt-6'>
+            <p className='font-bold'>
+            IoT Details
+            </p>
           </button>
         </div>
       </div>
@@ -260,7 +279,7 @@ const VegetablesIOT = ({ setActiveFarmTab }) => {
         </div>
 
       </div>
-
+      {showModalIOTDevices && <AddIOTtoProduct closeModal={handleCloseModalIOTDevices} />}
       {showModalEditProduct && <EditProductFormModal closeModal={handleCloseEditProduct} />}
     </div>
   )
