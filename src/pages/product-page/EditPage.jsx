@@ -14,10 +14,12 @@ import TangkaiBunga from '../../assets/tangkai-bunga.png'
 import DaunBunga from '../../assets/daun-bunga.png'
 import EditProductFormModal from '../../modal/EditProductFormModal';
 import AddIOTtoProduct from '../../modal/AddIOTtoProduct';
+import { Link, useNavigate } from 'react-router-dom';
 const EditPage = ({ setActiveProductTab }) => {
   const [showModalEditProduct, setShowModalEditProduct] = useState(false); // State to manage modal visibility
   const [showModalAddress, setShowModalAddress] = useState(false); // State to manage modal visibility
   const [showModalIOTDevices, setShowModalIOTDevices] = useState(false); // State to manage modal visibility
+
 
   const handleModalIOTDevices = () => {
     setShowModalIOTDevices(true);
@@ -66,11 +68,13 @@ const EditPage = ({ setActiveProductTab }) => {
         flex items-center justify-center rounded-md'>
           <p className='text-base text-[#202020] cursor-pointer'>Copy</p>
         </div>
+        <Link to='/product-details'>
         <div className='p-2 border-[#65A30D] border-2
         flex items-center justify-center rounded-md cursor-pointer'
-        onClick={handlePreviewMarketTab}>
+        >
           <p className='text-base text-[#202020] text-center'>Preview In Market</p>
         </div>
+        </Link>
       </div>
       {/* thubmnail product section */}
       <div className='w-full h-[300px] rounded-xl bg-[#ffffff] text-[#000000]

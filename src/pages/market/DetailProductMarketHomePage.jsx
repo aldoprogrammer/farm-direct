@@ -11,6 +11,8 @@ import { faCartShopping, faSeedling, faStoreAlt } from '@fortawesome/free-solid-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Option, Rating, Select } from '@material-tailwind/react';
 import PurchaseModal from '../../modal/PurchaseModal';
+import TopTab from '../../components/TopTab';
+import BottomTab from '../../components/BottomTab';
 
 const DetailsProductMarketHomePage = ({ setActiveMarketTab }) => {
   const [showModalPurchase, setShowModalPurchase] = useState(false);
@@ -43,6 +45,8 @@ const DetailsProductMarketHomePage = ({ setActiveMarketTab }) => {
 
 
   return (
+    <>
+    <TopTab />
     <div className='flex flex-col w-full h-[600px] px-2 py-0 items-center mt-4 gap-4 overflow-auto mb-20'>
       {/* thumbnail product section */}
       <div className='w-full 
@@ -95,6 +99,8 @@ const DetailsProductMarketHomePage = ({ setActiveMarketTab }) => {
       {showModalPurchase && <PurchaseModal closeModal={handleCloseModalPurchase} />}
       {showModalAddress && <FarmAddressDetailsFormModal closeModal={handleCloseEditAddress} />}
     </div>
+    <BottomTab activeTab='Market' />
+    </>
   );
 };
 

@@ -17,7 +17,7 @@ const Product = () => {
   const renderContent = () => {
     switch (activeProductTab) {
       case 'FirstProduct':
-        return <FirstProduct setActiveProductTab={setActiveProductTab} setActiveFirstProductTab={setActiveFirstProductTab} activeFirstProductTab={activeFirstProductTab} />; // Pass setActiveFirstProductTab to FirstProduct
+        return <EditPage setActiveProductTab={setActiveProductTab} setActiveFirstProductTab={setActiveFirstProductTab} activeFirstProductTab={activeFirstProductTab} />; // Pass setActiveFirstProductTab to FirstProduct
       case 'EditProductPage':
         return <EditPage setActiveProductTab={setActiveProductTab} />;
       case 'ProductMarketPreview':

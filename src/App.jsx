@@ -10,6 +10,7 @@ import RegisterFarmFlow from './pages/tabs/farms/RegisterFarmFlow';
 import UserProfile from './pages/tabs/user-profile/UserProfile';
 import Product from './pages/tabs/product/Product';
 import Market from './pages/tabs/market/Market';
+import DetailsProductMarketHomePage from './pages/market/DetailProductMarketHomePage';
 
 
 
@@ -28,7 +29,7 @@ function App() {
         <Route path="/farm" element={<RegisterFarmFlow />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path='/product' element={<Product />} />
-        
+        <Route path='/product-details' element={<DetailsProductMarketHomePage />} />
       </Routes>
     </Router>
   )
