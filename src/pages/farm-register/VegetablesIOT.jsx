@@ -17,6 +17,7 @@ import ReactSpeedometer from 'react-d3-speedometer';
 import ExploreMarket from '../../assets/explore-market.png';
 import { useNavigate } from 'react-router-dom';
 import AddIOTtoProduct from '../../modal/AddIOTtoProduct';
+import DetailsIOTtoProduct from '../../modal/DetailsIOTtoProduct';
 const VegetablesIOT = ({ setActiveFarmTab }) => {
   const [showModalEditProduct, setShowModalEditProduct] = useState(false); // State to manage modal visibility
   const [showModalAddress, setShowModalAddress] = useState(false); // State to manage modal visibility
@@ -279,7 +280,7 @@ const VegetablesIOT = ({ setActiveFarmTab }) => {
         </div>
 
       </div>
-      {showModalIOTDevices && <AddIOTtoProduct closeModal={handleCloseModalIOTDevices} />}
+      {showModalIOTDevices && <DetailsIOTtoProduct closeModal={handleCloseModalIOTDevices} />}
       {showModalEditProduct && <EditProductFormModal closeModal={handleCloseEditProduct} />}
     </div>
   )
