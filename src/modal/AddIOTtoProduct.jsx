@@ -27,7 +27,7 @@ const AddIOTtoProduct = ({ closeModal }) => {
                 {/* top title */}
                 <div className='flex items-center justify-between'>
                     <h2 className="text-xl font-bold mx-auto">
-                    Set Up IoT
+                        Set Up IoT
                     </h2>
                     <button onClick={closeModal} className="p-2 text-[#000000] hover:text-[#010101] transition-all ease-in duration-300 focus:outline-none border-[#D8D8DA] border-2 rounded-full">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -40,24 +40,25 @@ const AddIOTtoProduct = ({ closeModal }) => {
                 <div className='h-[74%] overflow-y-auto'>
                     <div className='flex flex-col'>
                         <h3 className='text-base font-semibold mb-2'>
-                        Connecting your IoT to FarmDirect
-functionality is in development but to test it without connecting to IoT
-we provided a few fields for you to fill out.
+                            Connecting your IoT to FarmDirect
+                            functionality is in development but to test it without connecting to IoT
+                            we provided a few fields for you to fill out.
                         </h3>
                         <p>
-                        Add your current levels of soil.
+                            Add your current levels of soil.
                         </p>
                     </div>
                     {/* Form */}
                     <div className="text-center my-8">
                         <div className='my-2 flex flex-col gap-1 align-center'>
                             <label htmlFor="farmName" className='text-left font-semibold'>
-                            Nitrogen N (PPM)
+                                Nitrogen N (PPM)
                             </label>
                             <input
                                 type="text"
                                 name="farmName"
                                 id="farmName"
+                                value={30}
                                 placeholder='Enter farm name'
                                 className='py-2 px-3 rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
                             />
@@ -67,42 +68,32 @@ we provided a few fields for you to fill out.
                     <div className="text-center mt-0">
                         <div className='my-2 flex flex-col gap-1 align-center'>
                             <label htmlFor="farmName" className='text-left font-semibold'>
-                            Phosphorus P (PMP)
+                                Phosphorus P (PMP)
                             </label>
                             <input
                                 type="text"
                                 name="farmName"
                                 id="farmName"
-                                placeholder='Enter farm name'
-                                className='py-2 px-3 rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
-                            />
-                        </div>
-                        <div className='my-2 flex flex-col gap-1 align-center'>
-                            <label htmlFor="phoneNumber" className='text-left font-semibold'>
-                                Harvested
-                            </label>
-                            <input
-                                type="text"
-                                name="phoneNumber"
-                                id="phoneNumber"
-                                placeholder='Enter phone number'
-                                className='py-2 px-3 rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
-                            />
-                        </div>
-                        <div className='my-2 flex flex-col gap-1 align-center'>
-                            <label htmlFor="farmName" className='text-left font-semibold'>
-                            Potassium K (PMP)                            </label>
-                            <input
-                                type="text"
-                                name="farmName"
-                                id="farmName"
+                                value={30}
                                 placeholder='Enter farm name'
                                 className='py-2 px-3 rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
                             />
                         </div>
                         <div className='my-2 flex flex-col gap-1 align-center'>
                             <label htmlFor="farmName" className='text-left font-semibold'>
-                            Date/Time                            </label>
+                                Potassium K (PMP)                            </label>
+                            <input
+                                type="text"
+                                name="farmName"
+                                id="farmName"
+                                value={30}
+                                placeholder='Enter farm name'
+                                className='py-2 px-3 rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
+                            />
+                        </div>
+                        {/* <div className='my-2 flex flex-col gap-1 align-center'>
+                            <label htmlFor="farmName" className='text-left font-semibold'>
+                                Date/Time                            </label>
                             <input
                                 type="date"
                                 name="farmName"
@@ -110,10 +101,10 @@ we provided a few fields for you to fill out.
                                 placeholder='Enter farm name'
                                 className='py-2 px-3 rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
                             />
-                        </div>
-                        <div className='my-2 flex flex-col gap-1 align-center'>
+                        </div> */}
+                        {/* <div className='my-2 flex flex-col gap-1 align-center'>
                             <label htmlFor="farmName" className='text-left font-semibold'>
-                            Moisture level</label>
+                                Moisture level</label>
                             <input
                                 type="text"
                                 name="farmName"
@@ -121,7 +112,7 @@ we provided a few fields for you to fill out.
                                 placeholder='Enter farm name'
                                 className='py-2 px-3 rounded-md bg-[#FFFFFF] text-[#89898A] border-[#D8D8DA] border outline-none'
                             />
-                        </div>
+                        </div> */}
                         <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-blue-gray-700 mt-5">
                             <div role="button" className={`flex items-center w-full p-0 leading-tight transition-all rounded-lg outline-none text-start hover:text-blue-gray-900 focus:text-blue-gray-900 active:text-blue-gray-900 text-blue-gray-900`}>
                                 <label htmlFor="vertical-list-react" className="flex items-center w-full px-1 py-2 cursor-pointer" onChange={handleRegisterBlockchainChange}>

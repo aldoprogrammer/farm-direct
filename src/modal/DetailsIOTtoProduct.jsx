@@ -54,7 +54,20 @@ const DetailsIOTtoProduct = ({ closeModal }) => {
                     </div>
                   
                     {/* Second Form */}
-                    <div className="text-center mt-0">
+                    <div className="mt-4">
+                        
+                        <div className='my-2 flex flex-col gap-1 
+                        font-semibold'>
+                            <p>Soil Type</p>
+                            <div>
+                                <Select label="Select Soil Type">
+                                    <Option>1 Package</Option>
+                                    <Option>2 Package</Option>
+                                    <Option>3 Package</Option>
+                                </Select>
+                            </div>
+                        
+                        </div>
                     <div className='my-2 flex flex-col gap-1 align-center'>
                             <label htmlFor="farmName" className='text-left font-semibold'>
                                 Nitrogen N (PPM)
