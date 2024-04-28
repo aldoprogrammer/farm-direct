@@ -14,7 +14,7 @@ import PurchaseModal from '../../modal/PurchaseModal';
 import TopTab from '../../components/TopTab';
 import BottomTab from '../../components/BottomTab';
 
-const DetailsProductMarketHomePage = ({ setActiveMarketTab }) => {
+const DetailProductMarket = ({ setActiveMarketTab }) => {
   const [showModalPurchase, setShowModalPurchase] = useState(false);
   const [showModalAddress, setShowModalAddress] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState("1 Package"); // Initial state
@@ -45,7 +45,8 @@ const DetailsProductMarketHomePage = ({ setActiveMarketTab }) => {
 
 
   return (
-    
+    <>
+    <TopTab />
     <div className='flex flex-col w-full h-[600px] px-2 py-0 items-center mt-4 gap-4 overflow-auto mb-20'>
       {/* thumbnail product section */}
       <div className='w-full 
@@ -98,8 +99,9 @@ const DetailsProductMarketHomePage = ({ setActiveMarketTab }) => {
       {showModalPurchase && <PurchaseModal closeModal={handleCloseModalPurchase} />}
       {showModalAddress && <FarmAddressDetailsFormModal closeModal={handleCloseEditAddress} />}
     </div>
-    
+    <BottomTab activeTab='Market' />
+    </>
   );
 };
 
-export default DetailsProductMarketHomePage;
+export default DetailProductMarket;
