@@ -5,6 +5,9 @@ import FarmDetailsFormModal from '../../modal/FarmDetailsFormModal';
 import FarmAddressDetailsFormModal from '../../modal/FarmAddressDetailsFormModal';
 import { Link } from 'react-router-dom';
 import RegisterFarmModal from '../../modal/RegisterFarmModal';
+import { ethers } from 'ethers';
+import Web3 from 'web3';
+import abi from './farm.json'
 
 const FarmDetailsForm = ({ setActiveFarmTab }) => {
   const [state, setState] = useState({
@@ -12,6 +15,7 @@ const FarmDetailsForm = ({ setActiveFarmTab }) => {
     signer: null,
     contract:null
   });
+  const [account, setAccount] = useState('Not connected');
   const [showModalFarmBussiness, setShowModalFarmBussiness] = useState(false); // State to manage modal visibility
   const [showModalRegisterFarmBlockchain, setShowModalRegisterFarmBlockchain] = useState(false); // State to manage modal visibility
   const [fillUserProfile, setFillUserProfile] = useState('not done');
@@ -19,22 +23,36 @@ const FarmDetailsForm = ({ setActiveFarmTab }) => {
 
   useEffect(() => {
     // Check if the value in localStorage is 'done'
-    // const storedFillUserProfile = localStorage.getItem('fillUserProfile');
+    const storedFillUserProfile = localStorage.getItem('fillUserProfile');
     // if (storedFillUserProfile) {
-      // setFillUserProfile(storedFillUserProfile);
-      const fetchContract = async()=> {
-        const contractAddress="";
-        const contractABI="";
+      setFillUserProfile(storedFillUserProfile);
+      const getContract = async()=> {
+        const contractAddress="0x5e39f07367cc6cd1c0b1e69381c088a70b95ae23ee770237faa41b49b543ecd7";
+        const contractABI=abi.abi;
   
         // Metamask configuration
+        try{
         const {ethereum} = window;
+        conole.log(ethereum)
   
         const account = await ethereum.request({
         method:"eth_requestAccounts"
       })
-      // const provider
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const signer = provider.getSigner();
+
+      const contract = new ethers.Contract(
+        contractAddress,
+        contractABI,
+        signer
+      )
+      console.log(contract)
+      setState({provider,signer,contract});
+    }catch(error){
+      alert(error);
     }
-      fetchContract();
+  }
+      getContract();
   },[]);
 
   const handleRegisterFarmBlockchain = () => {
