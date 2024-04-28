@@ -6,7 +6,7 @@ import WelcomeFarmPage from '../../farm-register/WelcomeFarmPage';
 import FarmDetailsForm from '../../farm-register/FarmDetailsForm';
 import { Helmet } from 'react-helmet';
 import FarmRegisterDone from '../../farm-register/FarmRegisterDone';
-import UserFormDetails from '../../users/UserFormDetails';
+import VegetablesIOT from '../../farm-register/VegetablesIOT';
 
 const RegisterFarmFlow = () => {
   const [activeFarmTab, setActiveFarmTab] = useState('WelcomeFarmPage');
@@ -14,7 +14,7 @@ const RegisterFarmFlow = () => {
   const renderContent = () => {
     switch (activeFarmTab) {
       case 'WelcomeFarmPage':
-        return <WelcomeFarmPage setActiveFarmTab={setActiveFarmTab} />;
+        return <VegetablesIOT setActiveFarmTab={setActiveFarmTab} />;
         case 'FarmDetails':
         return <FarmDetailsForm setActiveFarmTab={setActiveFarmTab} />;
       case 'Done':

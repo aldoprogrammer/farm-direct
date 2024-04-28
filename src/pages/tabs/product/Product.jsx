@@ -8,7 +8,7 @@ import FarmRegisterDone from '../../farm-register/FarmRegisterDone';
 import UserFormDetails from '../../users/UserFormDetails';
 import FirstProduct from '../../product-page/FirstProduct';
 import EditPage from '../../product-page/EditPage';
-import ProductMarketPreview from '../../product-page/ProductMarketPreview';
+
 
 const Product = () => {
   const [activeProductTab, setActiveProductTab] = useState('FirstProduct');
@@ -21,7 +21,7 @@ const Product = () => {
       case 'EditProductPage':
         return <EditPage setActiveProductTab={setActiveProductTab} />;
       case 'ProductMarketPreview':
-        return <ProductMarketPreview setActiveProductTab={setActiveProductTab} />;
+        
       default:
         return <WelcomeFarmPage />;
     }
