@@ -33,11 +33,19 @@ const PurchaseModal = ({ closeModal }) => {
                 confirmButtonText: 'OK',
                 confirmButtonColor: '#3085d6',
             });
-            navigate('/login');
         } else {
-            // Perform other actions if needed
-            // For example, show a message that the user is already logged in
-            console.log("User is already logged in.");
+            // Perform purchase logic
+            // For example, you can simulate a successful purchase with a timeout
+            setTimeout(() => {
+                // Show success message
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Purchase Successful!',
+                    text: 'Your purchase has been completed successfully.',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3085d6',
+                });
+            }, 1000); // Simulate a delay of 1 second for demonstration
         }
     };
 
