@@ -14,12 +14,18 @@ contract Product is Farm {
          uint256 merchant_id;
          uint256 timestamp;
         }
-        struct orders {
+        struct Orders {
             uint256 order_id;
             uint256 user_id;
             uint256 timestamp;
             uint256 countrycode;
         }
+
+        Orders [] orders;
+
+        event DeliveryCreated();
+      
+
 
     mapping(uint32=> ProductDetails) public products;
     mapping(address => uint256) balances;
