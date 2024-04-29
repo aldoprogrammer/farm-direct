@@ -37,7 +37,7 @@ const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab, setActiveMar
             <FontAwesomeIcon icon={faArrowLeftLong} className='font-bold' /> {/* Specify the arrow icon */}
             <p className='text-base'>Dashboard</p>
           </div>
-          <h6 className='font-bold text-[18px]  font-roboto-slab'>Farm Details</h6>
+          {/* <h6 className='font-bold text-[18px]  font-roboto-slab'>Farm Details</h6> */}
         </div>
       )}
       {activeMarketTab === 'DetailsProductMarketHomePage' && (
@@ -79,9 +79,9 @@ const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab, setActiveMar
             <FontAwesomeIcon icon={faCog} className='w-6 h-6' /> {/* Use FontAwesomeIcon for the cog icon */}
             <p className='text-2xl font-normal'>56&deg;</p> {/* Use &deg; for the degree symbol */}
           </div>
-          <h5 className='text-white font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl z-10'>
+          {/* <h5 className='text-white font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl z-10'>
             Silver Bells Acres
-          </h5>
+          </h5> */}
           <img src={TopComponent} alt="Background" className='w-full h-5 absolute bottom-0' />
         </div>
       )}
@@ -104,9 +104,9 @@ const TopTab = ({ activeFarmTab, setActiveFarmTab, activeMarketTab, setActiveMar
             <FontAwesomeIcon icon={faPlus} /> {/* Specify the plus icon */}
           </div>
           {/* <img src={BackgroundNoImage} alt="Background" className='w-20 h-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl z-1' /> */}
-          <h5 className='text-white font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl z-10'>
+          {/* <h5 className='text-white font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl z-10'>
             {activeFirstProductTab === 'Listed' ? 'Your Product List' : 'Your Farm'}
-          </h5>
+          </h5> */}
           <img src={TopComponent} alt="Background" className='w-full h-5 absolute bottom-0 z-10' />
         </div>
       )}
