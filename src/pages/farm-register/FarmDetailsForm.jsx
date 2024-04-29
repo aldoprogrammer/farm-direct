@@ -27,7 +27,7 @@ const FarmDetailsForm = ({ setActiveFarmTab }) => {
     // if (storedFillUserProfile) {
       setFillUserProfile(storedFillUserProfile);
       const getContract = async()=> {
-        const contractAddress="0x5e39f07367cc6cd1c0b1e69381c088a70b95ae23ee770237faa41b49b543ecd7";
+        const contractAddress="0x266e1D8Ee6Ec3C5e4ffF8CFDdf1889e6C023c85b";
         const contractABI=abi.abi;
   
         // Metamask configuration
@@ -91,7 +91,7 @@ const FarmDetailsForm = ({ setActiveFarmTab }) => {
       {/* <ButtonFarmDirect title='Save Farm Details' onClick={handleSetupFarmClick} /> */}
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5'>
-        <div className='flex items-center gap-2 justify-between'>
+        <div className='flex items-center justify-between gap-2'>
           <div className='flex flex-col'>
             <p className='font-bold'>Farm (Business) Name:</p>
             <span className='text-sm font-normal'>Aldo ls</span>
@@ -109,18 +109,16 @@ const FarmDetailsForm = ({ setActiveFarmTab }) => {
           <p className='font-bold'>Business Id:</p>
           <span className='text-sm font-normal'>123456789</span>
         </div>
-        <div className='flex items-center 
-        gap-2 justify-between w-full'>
+        <div className='flex items-center justify-between w-full gap-2'>
           <div className='flex flex-col'>
           <p className='font-bold'>Address:</p>
-          <span className='text-sm font-normal w-4/5'>
+          <span className='w-4/5 text-sm font-normal'>
             4567 Meridian Street
             Bellingham, WA 98225
           </span>
           </div>
         </div>
-        <div className='flex items-center 
-        gap-2 justify-between w-full'>
+        <div className='flex items-center justify-between w-full gap-2'>
           <div className='grid grid-cols-2 gap-4'>
           <div className='flex flex-col'>
           <p className='font-bold'>Long:</p>
@@ -144,7 +142,7 @@ const FarmDetailsForm = ({ setActiveFarmTab }) => {
 
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5'>
-        <div className='flex items-left gap-2 justify-between w-full'>
+        <div className='flex justify-between w-full gap-2 items-left'>
           <div className='flex flex-col'>
             {fillUserProfile === 'done' && (
               <>
@@ -167,8 +165,8 @@ const FarmDetailsForm = ({ setActiveFarmTab }) => {
                   <p className='font-bold'>Blockchain ID:</p>
                   <span>89484673829</span>
                 </div>
-                <div className='flex flex-col justify-center items-center'>
-                  <span className='w-4/5 mt-4 text-sm text-center mx-auto font-normal'>You can create now contracts and list the produce in the market</span>
+                <div className='flex flex-col items-center justify-center'>
+                  <span className='w-4/5 mx-auto mt-4 text-sm font-normal text-center'>You can create now contracts and list the produce in the market</span>
                 </div>
               </>
             )}
@@ -176,14 +174,14 @@ const FarmDetailsForm = ({ setActiveFarmTab }) => {
           </div>
         </div>
         {fillUserProfile === 'not done' && (
-          <div className='flex flex-col justify-center items-center'
+          <div className='flex flex-col items-center justify-center'
             onClick={handleRegisterWalletClick}>
             <ButtonFarmDirect title='Create Your Wallet' />
           </div>
         )}
 
         {fillUserProfile === 'done' && (
-          <div className='flex flex-col justify-center items-center' onClick={handleRegisterFarmBlockchain}>
+          <div className='flex flex-col items-center justify-center' onClick={handleRegisterFarmBlockchain}>
             <ButtonFarmDirect title='Register On Blockchain' />
           </div>
         )}
@@ -193,9 +191,9 @@ const FarmDetailsForm = ({ setActiveFarmTab }) => {
 
       <div className='w-full h-auto p-4 rounded-xl bg-[#ffffff] text-[#000000]
       flex flex-col shadow-md gap-5 mb-4'>
-        <div className='flex flex-col items-left gap-2 justify-between w-full'>
+        <div className='flex flex-col justify-between w-full gap-2 items-left'>
           <p className='font-bold'>IoT Devices:</p>
-          <div className='flex flex-col justify-center items-center'>
+          <div className='flex flex-col items-center justify-center'>
             <ButtonFarmDirect title='Discover IoT Devices' />
           </div>
         </div>
