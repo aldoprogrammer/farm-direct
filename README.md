@@ -1,7 +1,7 @@
 # FARM DIRECT
 Our global team of five (Indonesia, Kenya, Singapore, India, United States) was united by a desire to create a meaningful impact on the world. Inspired by the pressing issue of hunger and the belief that no one should suffer from it, we explored numerous ideas, from nutrition education to the gamification of farming. We settled on supporting farmers globally, starting with Indonesia, a decision driven by the country's diverse agriculture and our connection through a team member residing there. Our goal was to make existing technologies more accessible to farmers to help them improve their practices and market reach.
 
-# Project details
+## Project details
 Artificial Intelligence:
 - For offering fertilizer recommendation, a ML model is built of the type - LightGBM. It is used because of its faster speed and higher accuracy in multiclassification scenarios. The dataset is imported from Kaggle. The ML model provides fertilizer recommendation based on Temperature, humidity, Ntrogen(N), Potassium(K), Phosphorus(P) and the soil type. 
 
